@@ -27,15 +27,24 @@
 
 **Implicación para Cognos**: el MoCA tiene excelente validación en español (🔎 varias validaciones en población española, sobre todo para DCL y demencias), **pero su modelo de certificación obligatoria de pago lo hace poco viable para un despliegue masivo gratuito y autoadministrado**. Reconsiderar solo si se consigue un acuerdo institucional que cubra la certificación de los operadores.
 
-### Mini-Cog — el candidato más abierto y robusto ✅
+### Mini-Cog — usable por una ONG (licencia confirmada) ✅
 
-El Mini-Cog (recuerdo de 3 palabras + test del reloj) combina tres ventajas decisivas para nuestra población:
+El Mini-Cog (recuerdo de 3 palabras + test del reloj) combina ventajas decisivas para nuestra población:
 
 - ✅ **Verificado (3-0)**: mostró **mayor precisión global de tamizaje que el MMSE (83% vs. 81%) incluso en personas con muy baja escolaridad**, con menor tiempo de aplicación — aunque conserva limitaciones ligadas al bajo nivel educativo.
   > *"the Mini-Cog showed greater screening accuracy than the MMSE (83% vs 81%), even in individuals with very low levels of schooling... also present limitations related to patients' low educational levels."*
   Fuente: revisión de versiones en español (PubMed 29753565).
 - ✅ **Verificado (3-0)**: existen **versiones validadas en español** del Mini-Cog, el Test del Reloj y el MMSE, con datos psicométricos publicados.
-- 🔎 El Mini-Cog se distribuye para uso clínico/educativo/investigación sin cargo por copia en su sitio oficial (mini-cog.com) — **confirmar los términos exactos por escrito** antes de digitalizar.
+
+**Licencia — resuelto en la 2ª ronda** (fuente oficial mini-cog.com; snippets de búsqueda, fetch directo bloqueado por el proxy). El Mini-Cog© (titular: S. Borson) distingue:
+
+- **Uso NO comercial** (universidades, fundaciones, profesionales de salud, hospitales, clínicas, institutos de salud pública): *"may use, reproduce and distribute Mini-Cog without permission or a licensing agreement"*, y el test *"should always be made available free of charge for clinical and educational use"*. **Una ONG sin ánimo de lucro encaja aquí.**
+- **Uso comercial** (empresas, farma): requiere permiso escrito y acuerdo de licencia.
+- **Condición clave**: **no modificar** el instrumento (palabras de recuerdo, puntuación, reloj) sin permiso del autor, y **conservar la leyenda de copyright**: *"Mini-Cog© S. Borson. All rights reserved. Reprinted with permission of the author solely for clinical and educational purposes. May not be modified or used for commercial, marketing, or research purposes without permission (soob@uw.edu)."* Existe **versión estandarizada en español** para reproducción fiel.
+- **Precedente**: la Alzheimer's Association reproduce y distribuye el Mini-Cog gratuitamente conservando la atribución — confirma la vía no comercial.
+- Sobre el **Test del Reloj embebido**: el CDT como técnica clínica es de dominio público (aunque algunos *sistemas de puntuación*, p. ej. Shulman/Sunderland, sí están protegidos); el reloj **dentro** del Mini-Cog se rige por las condiciones no comerciales anteriores.
+
+**Acción**: aunque no es obligatorio para uso no comercial, conviene **enviar el formulario de contacto (soob@uw.edu) dejando constancia escrita** del uso digital no comercial, sin modificación y gratuito — despeja dudas sobre la integración en web/app.
 
 > ❌ **Refutado (1-2)**: la afirmación de que el Mini-Cog en español supera al MMSE con "99% sensibilidad y 93% especificidad vs. 91%/92%" para demencia moderada **no se sostuvo** en la verificación (probablemente cifra de un estudio puntual sobre-generalizada). No usar esas cifras.
 
@@ -51,18 +60,37 @@ El Mini-Cog (recuerdo de 3 palabras + test del reloj) combina tres ventajas deci
 
 Esto confirma la **regla de oro** del proyecto (ver [01-vision-y-alcance](../01-vision-y-alcance.md)): el portal hace tamizaje y orientación, y deriva a valoración profesional.
 
-## 1.4 Recomendación de instrumentos (para validar con asesoría clínica)
+## 1.4 Instrumentos en español de acceso libre — alternativas al MMSE/MoCA ✅
+
+La 2ª ronda de investigación confirmó un **conjunto de instrumentos breves validados en español**, varios **aptos para baja alfabetización**, que evitan el problema de copyright del MMSE/MoCA:
+
+| Instrumento | Utilidad diagnóstica (AUC) | Rasgo clave | Fuente |
+|---|---|---|---|
+| **Fototest** | 0,87 (aROC poblacional 0,851; **0,875 con AD8**) ✅ | **Aplicable a analfabetos**; muy rápido (~2,8 min); no depende de lectoescritura | Neurología 2019 (S0213485319300866) y 2022 (S0213485322000858) |
+| **Eurotest** | 0,91 | Basado en el manejo de monedas (independiente de escolaridad) | Neurología 2019 |
+| **T@M** (Test de Alteración de Memoria) | 0,90 | Sensible a memoria episódica (útil en DCL amnésico) | Neurología 2019/2022 |
+| **AD8** (cuestionario al informador) | — (mejora la precisión combinado) ✅ | Lo responde el **cuidador**; encaja con el modo asistido | Neurología 2022 |
+| **GPCOG** | — | **Gratuito** para clínicos e investigadores, traducido al español; diseñado para atención primaria (paciente + informador) | Wikipedia/GPCOG (confirmar fuente primaria) |
+| Pfeiffer / SPMSQ, MIS | — | Otras opciones breves de dominio público en español | Neurología 2019; revisión UB (open access) |
+
+✅ **Verificado (3-0)** (estudio poblacional y de validación, Neurología 2022, PMID 35963538): puntos de corte actualizados y más sensibles — **AD8 ≥ 1, Fototest ≤ 35, T@M ≤ 40, MMSE ≤ 26** — sobre muestra poblacional (n=260) + validación (n=177). **El Fototest tuvo la mejor utilidad poblacional (aROC 0,851), que sube a 0,875 combinado con el AD8** (p<0,05).
+
+> **Hallazgo de diseño**: para población vulnerable y de baja alfabetización, **el Fototest (solo o con AD8) es probablemente mejor punto de partida que el propio Mini-Cog**, porque es independiente de la lectoescritura y está pensado para el contexto hispano de atención primaria. El AD8, al responderlo el cuidador, encaja de forma natural con el **modo asistido** del portal.
+>
+> ⚠️ **Pendiente**: la 2ª ronda confirmó el *rendimiento diagnóstico* de estos instrumentos, pero **no el estatus formal de copyright de cada uno** (Fototest, T@M, AD8, Eurotest). Antes de digitalizar, confirmar con los autores/publicaciones originales que permiten reproducción no comercial (el GPCOG sí es explícitamente gratuito).
+
+## 1.5 Recomendación de instrumentos (para validar con asesoría clínica)
 
 | Prioridad | Instrumento | Estado de licencia | Por qué |
 |---|---|---|---|
-| **1 (arranque)** | **Mini-Cog** | Aparentemente abierto — *confirmar por escrito* | Rápido, robusto en baja escolaridad, validado en español, sin cobro por copia conocido |
-| 1 (complemento) | **Test del Reloj (CDT)** | Dominio público en la mayoría de variantes — *confirmar variante* | Parte del Mini-Cog; buena sensibilidad visuoespacial/ejecutiva |
-| 2 (evaluar) | Instrumentos de **dominio público** diseñados abiertos | Abierto | Evita todo el problema de copyright; explorar alternativas open-source |
+| **1 (arranque, baja alfabetización)** | **Fototest** (+ **AD8** al cuidador) | Validado en español; *confirmar copyright con autores* | Independiente de lectoescritura, rápido, mejor utilidad poblacional; AD8 encaja con modo asistido |
+| **1 (alternativa robusta)** | **Mini-Cog** (+ Test del Reloj) | ✅ **Libre para uso no comercial** (sin modificar, con atribución) | Licencia confirmada favorable; validado en español; robusto en baja escolaridad |
+| 2 (evaluar) | **GPCOG**, Eurotest, T@M, Pfeiffer/SPMSQ, MIS | Gratuito (GPCOG) / dominio público en español — *confirmar* | Amplían la batería; independientes de escolaridad varios |
 | 3 (solo con acuerdo) | MoCA | Certificación de pago obligatoria | Excelente en español pero difícil de escalar gratis |
 | **Evitar** | MMSE (forma oficial) | Copyright, cobro por copia, riesgo legal | Precedente Sweet 16 |
 
-**Acción de Fase 0** (ver [hoja de ruta](../06-hoja-de-ruta.md)): obtener **por escrito** los términos de licencia del Mini-Cog y del Test del Reloj en la variante que se piense usar, y validar puntos de corte con el asesor clínico.
+**Acción de Fase 0** (ver [hoja de ruta](../06-hoja-de-ruta.md)): confirmar por escrito el copyright de **Fototest + AD8** con sus autores; dejar constancia del uso no comercial del **Mini-Cog**; validar puntos de corte por edad/escolaridad con el asesor clínico.
 
-## 1.5 Diseño técnico derivado
+## 1.6 Diseño técnico derivado
 
 Esto refuerza la decisión de arquitectura de tratar cada instrumento como **dato declarativo versionado con metadatos de licencia** (ver [03-arquitectura](../03-arquitectura.md) §"Definición declarativa de instrumentos"): cada definición lleva un bloque `licencia: {tipo, verificada_por, fecha, url}` que **bloquea la publicación** de un instrumento sin licencia verificada.

@@ -49,7 +49,25 @@ Esta es la referencia escéptica estándar. Coexiste con los meta-análisis posi
 - **Nunca** prometemos **prevenir o revertir la demencia**.
 - Comunicamos la incertidumbre con honestidad al usuario y al patrocinador.
 
-## 2.5 Síntesis para el producto
+## 2.5 Terapia de Estimulación Cognitiva (CST): la intervención mejor avalada y más replicable ✅
+
+Hallazgo central de la 2ª ronda, y probablemente **el más importante para el módulo de terapias/ejercicios**. La **Terapia de Estimulación Cognitiva (CST, *Cognitive Stimulation Therapy*)** es una intervención grupal, estructurada, de temas y actividades:
+
+- ✅ **Verificado (3-0)**: la CST **mejora la cognición y la calidad de vida en demencia leve-moderada**, con eficacia (comparación *indirecta* entre estudios) comparable a los inhibidores de la colinesterasa.
+- ✅ **Verificado (3-0)**: es **la única intervención no farmacológica recomendada por NICE** (guía NG97) para la cognición en demencia leve-moderada, y es **coste-efectiva** (Knapp et al. 2006). Cochrane (Woods et al., CD005562): efecto en cognición SMD 0,40 (IC95% 0,25–0,55; ~2 puntos MMSE, considerado clínicamente relevante).
+- ✅ **Verificado (3-0)**: al **no requerir equipo ni conocimiento especializado**, la CST puede **delegarse (task-shifting) a no especialistas entrenados** — clave para entornos con pocos terapeutas.
+- ✅ **Verificado (3-0)**: **ha sido adaptada culturalmente y pilotada en un entorno de bajos recursos y baja alfabetización (Tanzania)** con resultados similares y un **plan de implementación concreto**: campañas de concienciación, tamizaje comunitario/ambulatorio, formación de formadores, delegación de tareas y un espacio "amigable con la demencia".
+- ✅ **Verificado (3-0)**: adaptaciones documentadas para bajos recursos: **programar en torno a los horarios del mercado local, un facilitador extra para personas con déficit sensorial, y acomodar el analfabetismo**.
+
+> ⚠️ **Matices honestos**: la comparación con inhibidores de colinesterasa es *indirecta* (entre ensayos, no cara a cara); Cochrane califica el beneficio cognitivo de "pequeño" con alta heterogeneidad; y la evidencia en bajos recursos proviene sobre todo de **África subsahariana (Tanzania, Nigeria)**, no de cohortes latinoamericanas o hispanohablantes. La CST además es **presencial y grupal facilitada**, no digital autoadministrada.
+
+**Implicaciones para Cognos**:
+1. La CST es **el marco terapéutico de referencia** para el módulo de estimulación — con base de evidencia y aval de NICE que ningún "brain game" comercial tiene.
+2. Su modelo **task-shifting + tamizaje comunitario** es exactamente el del portal (agente comunitario/cuidador como facilitador). El portal puede **estructurarse como apoyo a facilitadores de CST**, no solo como ejercicios individuales.
+3. **Vacío que Cognos podría llenar (y que interesa a la investigación)**: existe poca evidencia de CST **digital/autoadministrada** en adultos hispanohablantes de baja alfabetización digital. Documentar y compartir lo aprendido sería una contribución original (atractiva para patrocinadores y academia).
+4. Explorar el material **CST-International** y sus manuales de adaptación cultural como base de contenidos (verificar licencias).
+
+## 2.6 Síntesis para el producto
 
 | Decisión de producto | Fundamento |
 |---|---|

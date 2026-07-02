@@ -19,12 +19,17 @@
 El material de investigación confirmó el canal BID. Las siguientes categorías son **rutas conocidas para ONG de salud digital** que conviene investigar en una segunda ronda dedicada (marcadas 🔎 = por confirmar términos vigentes):
 
 ### A. Créditos de infraestructura para ONG (reducen el costo operativo a ~0)
-- 🔎 **Google for Nonprofits** / Google.org (créditos de Google Cloud y Workspace).
-- 🔎 **Microsoft for Nonprofits** / Azure credits.
-- 🔎 **AWS Nonprofit Credit Program**.
-- 🔎 **Cloudflare Project Galileo** (protección y CDN gratuitas para proyectos de interés público).
 
-> Estos no son "patrocinio" en efectivo, pero **eliminan el mayor costo recurrente** y hacen creíble el modelo de operación gratuita ante otros patrocinadores.
+Dos programas quedaron **documentados en detalle** en la 2ª ronda (✅ verificado 3-0):
+
+- ✅ **AWS Nonprofit Credit Program** — **crédito promocional escalonado según presupuesto**: **US$1.000** (presupuesto < US$10M, *nuestra categoría*), US$2.000 (US$10–50M) o US$5.000 (> US$50M). **Un crédito por año fiscal** (1 jul–30 jun), cada uno **válido 12 meses**. **No se solicita directamente a AWS**: se distribuye a través de **TechSoup y sus socios regionales** (TechSoup valida ONG en 236 países, incl. TechSoup España y socios en LatAm como **MAKAIA** y **Cemefi** en México). *Nota: el programa tuvo "expansión global" reciente a ~50 países; confirmar que el país objetivo está incluido.*
+- ✅ **Microsoft for Nonprofits** — **precios con descuento** en nube (Azure) y algunas licencias on-premise. Elegibilidad: **estatus legal equivalente a 501(c)(3)** con **misión de beneficio comunitario** (socorro, educación, bienestar social, cultura, medio ambiente, derechos humanos, sociedad civil). **Excluye** gobiernos/ONU, escuelas/universidades, servicios públicos, entidades financieras, asociaciones profesionales/deportivas/políticas/sindicales y personas individuales. Distingue **grants** (solo empleados pagados + directivos no remunerados) de **descuentos** (todo el personal, incl. voluntarios). *La página de elegibilidad no publica montos de crédito Azure concretos; la cifra "US$2.000/año" que circula viene de otras páginas de Azure, verificar.*
+
+Aún por investigar (3ª ronda):
+- 🔎 **Google for Nonprofits** / Google.org (Google Cloud y Workspace) — elegibilidad y montos vigentes.
+- 🔎 **Cloudflare Project Galileo** / Startups for Nonprofits (protección y CDN gratuitas para proyectos de interés público).
+
+> Estos no son "patrocinio" en efectivo, pero **eliminan el mayor costo recurrente** y hacen creíble el modelo de operación gratuita ante otros patrocinadores. **Requisito previo común: tener figura jurídica de ONG y validarse ante TechSoup** — otra razón para constituir la entidad en Fase 0.
 
 ### B. Banca de desarrollo y organismos multilaterales
 - ✅ **BID / BID Lab** (confirmado como canal, §6.1).

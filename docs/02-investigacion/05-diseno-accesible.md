@@ -55,7 +55,24 @@ Estos cuatro elementos ya están recogidos en el documento de diseño; esta revi
 - **W3C COGA — *Making Content Usable for People with Cognitive and Learning Disabilities*** (w3.org/TR/coga-usable): guía canónica que complementa WCAG con objetivos y patrones para personas con dificultades de memoria, atención y resolución de problemas, cubriendo explícitamente el **deterioro cognitivo asociado al envejecimiento y el DCL**.
 - **WAI Cognitive Accessibility** (w3.org/WAI/cognitive): portal de accesibilidad cognitiva del W3C.
 
-Estos son la referencia normativa citada en [04-diseño-ux](../04-diseno-ux-accesibilidad.md). Recuperar el texto completo de COGA cuando el acceso lo permita, para derivar un checklist detallado.
+Estos son la referencia normativa citada en [04-diseño-ux](../04-diseno-ux-accesibilidad.md).
+
+### Los 8 objetivos de COGA y patrones concretos (2ª ronda) ✅
+
+✅ **Verificado (3-0)**: la guía COGA se estructura en **8 objetivos de diseño**, cada uno con **patrones comprobables**. Los directamente aplicables a adultos mayores con memoria afectada y baja alfabetización:
+
+| Patrón COGA | Regla concreta | Aplicación en Cognos |
+|---|---|---|
+| **Objetivo 6 — "No depender de la memoria"** | Los procesos no deben exigir recordar información entre pasos | Autenticación sin contraseñas; no pedir recordar datos de una pantalla anterior; recordatorios visibles |
+| **"Usar palabras claras" (o3p01)** | Preferir las **~1500 palabras más comunes**; vocabulario que la gente con dificultades severas de lenguaje reconoce | Lenguaje llano; glosario visible; *(nota: la lista de 1500 es para inglés; **construir equivalente en español**)* |
+| **"Lenguaje literal" (o3p04)** | Términos concretos y ejemplos; **no usar metáforas ni símiles** salvo que se expliquen | Instrucciones directas ("Toque el botón verde"), sin lenguaje figurado |
+| **"Tiempo y voz simples" (o3p02)** | **Presente y voz activa** — *"particularmente importante para personas con problemas de memoria"* | Toda instrucción en presente activo: "Escuche las tres palabras" |
+
+> ✅ Cita textual COGA: el lenguaje simple *"permite a una persona con demencia en etapa temprana gestionar sus propios asuntos"*.
+>
+> ⚠️ **Matices** (el patrón de 1500 palabras tuvo voto dividido 2-1): los patrones COGA son **guía no normativa**; la lista de 1500 palabras es específica del léxico inglés (**no existe equivalente listo en español** — habría que construirlo o aproximarlo); y "dificultad severa de lenguaje" no es idéntico a "adulto mayor de baja alfabetización". Los principios transfieren al español, pero **requieren adaptación local** y validación con usuarios (§5.2).
+
+**Acción**: derivar de estos 8 objetivos un **checklist de accesibilidad cognitiva en español** como criterio de aceptación de cada pantalla, y construir/adaptar una **lista de vocabulario común en español** para los textos de cara a la persona.
 
 ## 5.6 Conexión con la evidencia de eficacia
 

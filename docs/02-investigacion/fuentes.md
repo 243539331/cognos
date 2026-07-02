@@ -55,20 +55,40 @@ Fuentes recolectadas por la investigación, con la evaluación de calidad que as
 |---|---|---|
 | BID/BID Lab — Silver Economy Innovation for Inclusion Challenge · https://www.iadb.org/en/news/idb-and-idb-lab-launch-challenge-silver-economy-latin-america-and-caribbean | primary | §6.1: montos (US$300k–2M), foco vulnerable, demografía regional |
 
+## Fuentes — 2ª ronda (cierre de vacíos)
+
+| Fuente | Calidad | Uso |
+|---|---|---|
+| Test cognitivos breves como herramienta de decisión en AP. Estudio poblacional y de validación, *Neurología* 2022 (PMID 35963538) · https://www.sciencedirect.com/science/article/pii/S0213485322000858 | primary | §1.4: Fototest/T@M/AD8, cortes actualizados (✅) |
+| Utilidad diagnóstica de test cognitivos breves, *Neurología* · https://www.elsevier.es/es-revista-neurologia-295-articulo-utilidad-diagnostica-test-cognitivos-breves-S0213485319300866 | secondary (snippet) | §1.4: AUC Eurotest/T@M/MIS/Fototest; Fototest apto para analfabetos |
+| mini-cog.com — FAQ / About / Contact / PDF estandarizado · https://mini-cog.com/faqs/ | secondary (snippet; fetch bloqueado) | §1.1: **licencia no comercial libre**, no modificar, conservar atribución |
+| GPCOG (Wikipedia; confirmar fuente primaria) · https://en.wikipedia.org/wiki/General_Practitioner_Assessment_of_Cognition | unreliable | §1.4: GPCOG gratuito, en español |
+| Revisión UB — aplicación práctica de test breves (open access) · https://diposit.ub.edu/dspace/bitstream/2445/100175/1/654002.pdf | secondary | §1.4: criterios de selección por escolaridad |
+| MDCG 2019-11 — calificación de software bajo MDR (Comisión Europea) · https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2019_11_guidance_en_0.pdf | secondary (snippet) | §4.1: umbral "propósito previsto", wellness fuera de MDR |
+| MDCG 2019-11 Rev.1 análisis 2025 (BioSlice) · https://www.biosliceblog.com/2025/07/revised-guidance-on-classification-of-medical-device-software-in-the-eu/ | secondary | §4.1: estado vigente 2025-2026 UE |
+| COFEPRIS y software médico (Enlace Biomédico) · https://enlacebiomedico.com/el-software-como-dispositivo-medico-ya-lo-regula-la-cofepris/ | secondary (snippet) | §4.1: umbral no-diagnóstico México |
+| ANMAT — Productos Médicos · https://www.argentina.gob.ar/anmat/regulados/productos-medicos | primary (regulador; snippet) | §4.1: umbral no-diagnóstico Argentina |
+| Protección de datos en Colombia, Ley 1581 (SaludTools) · https://www.saludtools.com/articulo/proteccion-datos-pacientes-colombia-ley-1581 | secondary (snippet) | §4.2: datos de salud sensibles; excepción ONG/científica |
+| AWS Nonprofit Credit Program · https://aws.amazon.com/government-education/nonprofits/nonprofit-credit-program/ | primary | §6.2A: tiers US$1k/2k/5k vía TechSoup (✅) |
+| Microsoft for Nonprofits — elegibilidad · https://www.microsoft.com/en-us/nonprofits/eligibility | primary | §6.2A: elegibilidad, grants vs. descuentos (✅) |
+| W3C COGA — *Making Content Usable* · https://www.w3.org/TR/coga-usable/ (+ patrones o6-memory, o3p04, o3p02) | primary | §5.5: 8 objetivos y patrones (✅) |
+| Implementing CST in a Low-Resource Setting (Tanzania), *Global Implementation Research and Applications* 2024 (PMID 39958678) · https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11821707/ | primary | §2.5: CST task-shifting y adaptación cultural (✅) |
+| NICE NG97 · https://www.nice.org.uk/guidance/ng97 · Cochrane Woods et al. CD005562 · Spector 2003 · Knapp 2006 | primary | §2.5: CST recomendada y coste-efectiva (✅) |
+
 ---
 
 ## Estado de la verificación
 
-- **Fuentes recolectadas**: 24 · **Afirmaciones extraídas**: 63 · **Verificadas adversarialmente**: 25 · **Confirmadas (3-0)**: 7 · **Refutadas**: 1 · **Sin completar verificación (por límite de sesión)**: 17.
-- La **síntesis automática final no se completó** (límite de sesión); este dossier es la síntesis manual del material.
+- **Ronda 1** — Fuentes: 24 · Afirmaciones: 63 · Verificadas: 25 · Confirmadas (3-0): 7 · Refutadas: 1 · Sin verificar (límite de sesión): 17. Síntesis manual.
+- **Ronda 2** — Fuentes: 26 · Afirmaciones: 22 · **Verificadas: 22 · Confirmadas (3-0): 22 · Refutadas: 0** · Síntesis automática completa (5 hallazgos). Varios vacíos se cerraron además con snippets de búsqueda (fetch directo bloqueado por 403 en w3.org, PMC, Elsevier, AWS, NICE).
 
-### Segunda ronda de investigación recomendada (pendiente)
+### Tercera ronda de investigación (pendiente)
 
-Temas que quedaron con cobertura fina o bloqueada y merecen una nueva pasada:
+Vacíos que aún merecen una pasada:
 
-1. **Términos exactos de licencia del Mini-Cog y del Test del Reloj** (fuente oficial, por escrito).
-2. **Regulación de software médico por país de despliegue** (INVIMA Colombia, COFEPRIS México, ANMAT Argentina, etc.).
-3. **Programas de financiación vigentes** (créditos de nube para ONG, convocatorias BID Lab/CAF/OPS actuales) con elegibilidad y plazos.
-4. **Texto completo de W3C COGA** para derivar un checklist de accesibilidad cognitiva detallado (fetch estuvo bloqueado).
-5. **Instrumentos de tamizaje de dominio público / open-source** como alternativa a MMSE/MoCA.
-6. **Cochrane 2019 completo** para calibrar con precisión el mensaje sobre eficacia.
+1. **Estatus formal de copyright de Fototest, T@M, AD8, Eurotest** (confirmar reproducción no comercial con autores/publicaciones).
+2. **Clasificación específica de INVIMA (Colombia)** para software de salud, y confirmación de exenciones para ONG.
+3. **Financiadores no cubiertos**: Google for Nonprofits/Google.org, Cloudflare Project Galileo, convocatorias vigentes de BID Lab, CAF, OPS/OMS (envejecimiento saludable / salud digital).
+4. **Evidencia de CST digital/autoadministrada** en hispanohablantes de baja alfabetización digital (vacío de la literatura; oportunidad de contribución).
+5. **Material CST-International** y sus manuales de adaptación cultural (licencias y disponibilidad en español).
+6. **Lista de vocabulario común en español** (equivalente a las ~1500 palabras de COGA) para los textos de cara a la persona.

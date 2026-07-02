@@ -18,7 +18,20 @@ La línea que separa "bienestar" de "dispositivo médico" depende de las **afirm
 
 **Implicación**: en el marco de referencia (EE. UU.), un portal de **bienestar cognitivo no diagnóstico** (claims de "agudeza mental", ejercicio cognitivo) **puede quedar fuera** de la regulación de dispositivos — *si evita claims de enfermedad/diagnóstico*. El caso **Sincrolab** (ver [plataformas](03-plataformas-existentes.md)) muestra el otro lado: reclamar tratar una enfermedad → **dispositivo médico Clase IIa** con marcado CE y distribución mediada por profesionales.
 
-> Nota: la FDA es referencia, no la jurisdicción de despliegue. Para Latinoamérica hay que revisar la agencia local (🔎 en México, la **COFEPRIS** regula software y aplicaciones médicas; verificar INVIMA en Colombia, ANMAT en Argentina, etc. según país de despliegue).
+> Nota: la FDA es referencia, no la jurisdicción de despliegue.
+
+### El umbral común: "propósito médico previsto" (UE, México, Argentina) ✅
+
+La 2ª ronda confirmó que las tres jurisdicciones aplican **el mismo criterio decisivo**: lo que determina si un software es dispositivo médico es su **finalidad prevista (*intended purpose*)**, no la tecnología. Una herramienta que **informa, orienta o educa sobre bienestar** queda fuera; una que **diagnostica o trata una enfermedad** entra.
+
+| Jurisdicción | Norma / autoridad | Umbral no-diagnóstico |
+|---|---|---|
+| **Unión Europea** | **MDCG 2019-11** (guía de calificación de software bajo MDR); Rev.1 de 2025 | Software con fin **exclusivamente administrativo, de estilo de vida o bienestar NO es "Medical Device Software"** y queda fuera del MDR. Criterio: "finalidad médica prevista". |
+| **México** | **COFEPRIS** (Ley General de Salud, Reglamento de Insumos, NOM) | México **no tiene regulación específica de SaMD**; COFEPRIS regula solo si el software cumple una **"función médica"** (diagnóstico/tratamiento). Una herramienta de **tamizaje/bienestar no diagnóstica que solo orienta o educa tiende a quedar fuera** del registro sanitario obligatorio. |
+| **Argentina** | **ANMAT** (Productos Médicos) | "Producto médico" incluye software destinado a **diagnóstico, prevención, monitoreo, tratamiento o alivio de una enfermedad**. Si **no diagnostica ni trata** (mera estimulación/bienestar), puede quedar fuera. |
+| **Colombia** | INVIMA (dispositivos) + SIC (datos) | Mismo principio de finalidad prevista; ver §4.2 para datos. *Confirmar clasificación específica de INVIMA.* |
+
+> **Conclusión regulatoria**: la postura de diseño de Cognos (**tamizaje + orientación + estimulación, NO diagnóstico ni tratamiento**) es precisamente la que mantiene la herramienta **fuera de la categoría de dispositivo médico regulado** en las cuatro jurisdicciones estudiadas. Esto no es casualidad: la "regla de oro" del proyecto es también la estrategia regulatoria correcta. Aun así, **verificar caso por caso con asesoría legal local** antes de operar, porque los ejemplos-límite (p. ej. dar un "puntaje de riesgo") pueden acercar la herramienta a la frontera.
 
 ### Regla práctica de "diseño para no-dispositivo"
 

@@ -8,7 +8,7 @@
 
 - [x] Investigación de instrumentos, evidencia, plataformas, regulación y financiación (`docs/02-investigacion/`).
 - [ ] Conseguir **asesoría clínica** (neuropsicólogo/a, geriatra o terapeuta ocupacional) que revise instrumentos y contenidos. *Sin esto no se publica nada clínico.*
-- [ ] Verificar **licencias** de los instrumentos elegidos (por escrito cuando sea necesario).
+- [ ] Verificar **licencias** de los instrumentos elegidos (por escrito cuando sea necesario). *Candidatos priorizados por la investigación: **Fototest ± AD8** (apto para baja alfabetización) y **Mini-Cog** (licencia no comercial ya confirmada favorable). Ver [investigación §1](02-investigacion/01-instrumentos-evaluacion.md).*
 - [ ] Definir la figura legal (fundación/asociación) necesaria para recibir patrocinios y firmar convenios.
 - [ ] Identificar 1–2 organizaciones comunitarias para el piloto (centros día, fundaciones de adulto mayor).
 
@@ -16,7 +16,7 @@
 
 ## Fase 1 — MVP de evaluación (est. 6–8 semanas de desarrollo)
 
-**Objetivo**: aplicar un (1) instrumento de tamizaje de licencia libre, en modo asistido, y entregar el reporte.
+**Objetivo**: aplicar un (1) instrumento de tamizaje de licencia libre (candidato: **Fototest + AD8** o **Mini-Cog**), en modo asistido, y entregar el reporte.
 
 - Registro simple + consentimiento informado.
 - Motor de instrumentos (declarativo) con el primer instrumento.
@@ -28,7 +28,7 @@
 
 ## Fase 2 — Estimulación cognitiva (est. 8–10 semanas)
 
-**Objetivo**: plan de ejercicios personalizado según el perfil, usable sin conexión estable.
+**Objetivo**: plan de ejercicios personalizado según el perfil, usable sin conexión estable. **Marco de referencia: Terapia de Estimulación Cognitiva (CST)**, avalada por NICE y adaptable a bajos recursos (ver [investigación §2.5](02-investigacion/02-evidencia-cientifica.md)); evaluar los materiales de CST-International como base de contenidos.
 
 - Biblioteca inicial: ~5 tipos de ejercicio × 3 dominios × 3 niveles (memoria, atención, lenguaje).
 - Motor de recomendación simple (dominio más débil primero) + dificultad adaptativa.
