@@ -29,9 +29,18 @@ La 2ª ronda confirmó que las tres jurisdicciones aplican **el mismo criterio d
 | **Unión Europea** | **MDCG 2019-11** (guía de calificación de software bajo MDR); Rev.1 de 2025 | Software con fin **exclusivamente administrativo, de estilo de vida o bienestar NO es "Medical Device Software"** y queda fuera del MDR. Criterio: "finalidad médica prevista". |
 | **México** | **COFEPRIS** (Ley General de Salud, Reglamento de Insumos, NOM) | México **no tiene regulación específica de SaMD**; COFEPRIS regula solo si el software cumple una **"función médica"** (diagnóstico/tratamiento). Una herramienta de **tamizaje/bienestar no diagnóstica que solo orienta o educa tiende a quedar fuera** del registro sanitario obligatorio. |
 | **Argentina** | **ANMAT** (Productos Médicos) | "Producto médico" incluye software destinado a **diagnóstico, prevención, monitoreo, tratamiento o alivio de una enfermedad**. Si **no diagnostica ni trata** (mera estimulación/bienestar), puede quedar fuera. |
-| **Colombia** | INVIMA (dispositivos) + SIC (datos) | Mismo principio de finalidad prevista; ver §4.2 para datos. *Confirmar clasificación específica de INVIMA.* |
+| **Colombia** | **INVIMA** (dispositivos, Decreto 4725/2005) + SIC (datos) | ✅ **Confirmado**: el INVIMA responde que un software es dispositivo médico *"dependiendo del uso, aplicación y finalidad prevista establecida por el fabricante"* (arts. 6 y 7, Decreto 4725/2005). Si **no diagnostica, trata, cura, mitiga ni previene** una enfermedad (tamizaje orientativo, estimulación/bienestar sin emitir diagnóstico), **queda fuera** de la definición y **no requiere registro sanitario**. |
 
-> **Conclusión regulatoria**: la postura de diseño de Cognos (**tamizaje + orientación + estimulación, NO diagnóstico ni tratamiento**) es precisamente la que mantiene la herramienta **fuera de la categoría de dispositivo médico regulado** en las cuatro jurisdicciones estudiadas. Esto no es casualidad: la "regla de oro" del proyecto es también la estrategia regulatoria correcta. Aun así, **verificar caso por caso con asesoría legal local** antes de operar, porque los ejemplos-límite (p. ej. dar un "puntaje de riesgo") pueden acercar la herramienta a la frontera.
+> **Conclusión regulatoria**: la postura de diseño de Cognos (**tamizaje + orientación + estimulación, NO diagnóstico ni tratamiento**) es precisamente la que mantiene la herramienta **fuera de la categoría de dispositivo médico regulado** en las cuatro jurisdicciones estudiadas. Esto no es casualidad: la "regla de oro" del proyecto es también la estrategia regulatoria correcta.
+>
+> ⚠️ **Colombia — marco en transición**: los Decretos 4725/2005 y 3770/2004 tienen >15 años y **no contemplan el "software como dispositivo médico" (SaMD)**; Colombia está actualizando la regulación. Hoy la exención opera por la **finalidad de uso declarada**, pero conviene **documentar por escrito la intención de uso no diagnóstica** y **vigilar el nuevo decreto**. Verificar caso por caso con asesoría legal local; ejemplos-límite (p. ej. dar un "puntaje de riesgo") pueden acercar la herramienta a la frontera.
+
+### Datos personales en Colombia (Ley 1581) — excepciones aplicables ✅
+
+- Los **datos de salud son "datos sensibles"** (art. 6): su tratamiento exige **consentimiento previo y expreso** (no vale el silencio).
+- **La exención de "ámbito personal/doméstico" (art. 2) NO aplica** a un portal abierto a terceros: la SIC aclara que si los datos se entregan a terceros, sí rige el régimen y se requiere autorización. Cognos **no** puede ampararse en la vía doméstica.
+- **Sí aplica la vía científica/estadística (art. 10)**: se permite el tratamiento **sin autorización** para *"fines históricos, estadísticos o científicos"* **adoptando medidas para suprimir la identidad** de los titulares. Es la base legal para las **métricas agregadas anonimizadas** que se reportan a patrocinadores (ver [modelo de datos](../05-modelo-datos.md)).
+- Autoridad: **Superintendencia de Industria y Comercio (SIC)**.
 
 ### Regla práctica de "diseño para no-dispositivo"
 

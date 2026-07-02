@@ -75,9 +75,22 @@ La 2ª ronda de investigación confirmó un **conjunto de instrumentos breves va
 
 ✅ **Verificado (3-0)** (estudio poblacional y de validación, Neurología 2022, PMID 35963538): puntos de corte actualizados y más sensibles — **AD8 ≥ 1, Fototest ≤ 35, T@M ≤ 40, MMSE ≤ 26** — sobre muestra poblacional (n=260) + validación (n=177). **El Fototest tuvo la mejor utilidad poblacional (aROC 0,851), que sube a 0,875 combinado con el AD8** (p<0,05).
 
-> **Hallazgo de diseño**: para población vulnerable y de baja alfabetización, **el Fototest (solo o con AD8) es probablemente mejor punto de partida que el propio Mini-Cog**, porque es independiente de la lectoescritura y está pensado para el contexto hispano de atención primaria. El AD8, al responderlo el cuidador, encaja de forma natural con el **modo asistido** del portal.
->
-> ⚠️ **Pendiente**: la 2ª ronda confirmó el *rendimiento diagnóstico* de estos instrumentos, pero **no el estatus formal de copyright de cada uno** (Fototest, T@M, AD8, Eurotest). Antes de digitalizar, confirmar con los autores/publicaciones originales que permiten reproducción no comercial (el GPCOG sí es explícitamente gratuito).
+> **Hallazgo de diseño**: para población vulnerable y de baja alfabetización, **el Fototest (solo o con AD8) tiene el mejor perfil clínico de arranque**, porque es independiente de la lectoescritura y está pensado para el contexto hispano de atención primaria. El AD8, al responderlo el cuidador, encaja de forma natural con el **modo asistido** del portal.
+
+### Copyright de cada instrumento — resuelto en la 3ª ronda ⚠️
+
+**Corrección importante: ninguno de estos instrumentos es de dominio público.** Todos permiten uso clínico no comercial, pero **digitalizarlos en una plataforma requiere permiso escrito del autor** en casi todos los casos.
+
+| Instrumento | Titular | Licencia / condición | ¿Digitalizable por la ONG? |
+|---|---|---|---|
+| **Fototest** | Cristóbal Carnero-Pardo (fototest.es) | **CC BY-NC-ND** (No comercial, **SinObraDerivada**) | No comercial ✅, pero la cláusula **ND es problemática**: una versión web interactiva puede ser "obra derivada" → **pedir permiso expreso al autor** |
+| **Eurotest** | Carnero-Pardo (**EUROTEST®**, marca registrada) | Creative Commons, uso clínico/investigación no comercial | Igual que Fototest → **permiso del autor** |
+| **AD8** | Alzheimer's Disease Research Center, Washington University (Galvin et al., © 2005) | Uso y reproducción **sin modificar** para atención clínica e investigación **no comercial**; otro uso requiere permiso escrito (morrisj@abraxas.wustl.edu). Traducción ES reproducida con permiso por Carnero-Pardo/SEN | Permitido no comercial sin modificar ✅ — **confirmar por escrito** el uso digital |
+| **T@M** | Lorena Rami (copyright registrado B-5483-04) | Uso clínico permitido; **no comercial ni investigación** sin permiso de la autora | **Pedir permiso** a la autora para digitalizar |
+| **GPCOG** | J. Brodaty et al. | **Gratuito** para clínicos e investigadores, descarga libre, traducido al español | **La opción más libre** — verificar términos de la web oficial |
+| **Mini-Cog** | S. Borson | Uso no comercial libre, sin modificar, con atribución (ver §1.1) | ✅ (ya confirmado) |
+
+> **Implicación**: el "uso libre" clínico que promueven los autores **no equivale a licencia para digitalizar/redistribuir**. La acción de Fase 0 es **escribir a Carnero-Pardo (Fototest/Eurotest), a Washington University (AD8) y a L. Rami (T@M)** solicitando permiso de reproducción digital no comercial. Como los tres primeros comparten autor español (Carnero-Pardo), una sola gestión cubre Fototest + Eurotest. **El GPCOG y el Mini-Cog son las vías con menor fricción legal** si esas gestiones se demoran.
 
 ## 1.5 Recomendación de instrumentos (para validar con asesoría clínica)
 

@@ -64,8 +64,27 @@ Hallazgo central de la 2ª ronda, y probablemente **el más importante para el m
 **Implicaciones para Cognos**:
 1. La CST es **el marco terapéutico de referencia** para el módulo de estimulación — con base de evidencia y aval de NICE que ningún "brain game" comercial tiene.
 2. Su modelo **task-shifting + tamizaje comunitario** es exactamente el del portal (agente comunitario/cuidador como facilitador). El portal puede **estructurarse como apoyo a facilitadores de CST**, no solo como ejercicios individuales.
-3. **Vacío que Cognos podría llenar (y que interesa a la investigación)**: existe poca evidencia de CST **digital/autoadministrada** en adultos hispanohablantes de baja alfabetización digital. Documentar y compartir lo aprendido sería una contribución original (atractiva para patrocinadores y academia).
-4. Explorar el material **CST-International** y sus manuales de adaptación cultural como base de contenidos (verificar licencias).
+
+### CST en formato digital, individual y en español — hallazgos de la 3ª ronda ✅
+
+La 3ª ronda cerró el vacío sobre CST **digital/individual** y su disponibilidad en español:
+
+- ✅ **iCST digital individual es factible**: ECA de factibilidad (61 díadas; app iCST en pantalla táctil vs. cuidado usual, 11 semanas). **77% usó la app ≥20 min/semana**; se consideró usable y agradable; **mejoró la calidad de vida del cuidador** (EQ-5D, dif. media 7,69; p=0,006), aunque **sin efecto significativo en cognición** en esa muestra pequeña. Los autores concluyen que un ECA a gran escala es viable con ajustes.
+- ⚠️ **Lección de diseño crítica**: los participantes **agotaron las actividades más rápido de lo previsto**. Una CST digital autoadministrada **exige un banco de actividades mucho mayor** que el de un programa CST en papel — a tener muy en cuenta en el dimensionamiento de contenidos.
+- ✅ **Existe CST individual domiciliaria** ("Making a Difference 3" / MD3-P): entregada en casa por **cuidadores familiares** (no autoadministrada pura ni digital), validada en ECA (52 díadas, portugués europeo). Es el contraparte individual del CST grupal.
+- ✅ **CST online (vCST) es factible en entornos de ingresos medios/bajos**: grupos por Zoom en Brasil e India (91% reclutado, 7% abandono). **Barreras clave: acceso a tecnología, alfabetización digital y sostenibilidad** — exactamente los retos de nuestra población.
+- ✅ **Evidencia latinoamericana en español**: CST-Brasil (grupal presencial, portugués) mejoró **ánimo y AVD** (no cognición) con alta aceptación; revisión sistemática latinoamericana (U. del Rosario, Colombia) sobre eficacia de estimulación cognitiva en DCL; y experiencia mexicana de **teleneuropsicología** en adultos mayores en riesgo de DCL, justificada por la falta de servicios y la baja escolaridad.
+
+### CST-ES y licencias de los manuales ✅
+
+- ✅ **Existe una adaptación española oficial: CST-ES** (*Cognitive Stimulation Therapy—Spain*), traducción y adaptación cultural de los manuales UK de CST **grupal y de mantenimiento**, con estudio piloto en España (equipo **CREA/Imserso**: Pérez-Sáez, Tofiño García et al.; *Int. J. Geriatric Psychiatry*). El piloto (n=6) reportó **mejoras cognitivas y de calidad de vida** sin problemas de implementación.
+- ⚠️ **CST-ES es grupal y facilitada por profesionales** (en el centro CREA), **no un formato individual, autoadministrado ni digital**.
+- ⚠️ **Los manuales NO son de dominio público**: el Centro Internacional de CST (UCL, Prof. Aimee Spector) lista los manuales oficiales ("Making a Difference" 1, 2 y 3); se **venden** vía Hawker Publications (~£15,95). El español **no figura entre las traducciones oficiales** publicadas (sí existe la adaptación CST-ES). **Digitalizar o traducir requiere licencia/permiso de autores y editorial.**
+
+**Implicaciones para el módulo de terapias**:
+1. **CST-ES da un marco validado en español** del que partir — contactar al equipo CREA/Imserso para colaboración y permisos.
+2. Construir una versión **digital/individual** de CST es original y con evidencia de factibilidad (iCST), **pero exige**: (a) permiso de UCL/autores/Hawker, (b) un **banco de actividades grande** (la lección del iCST), y (c) reconocer que la evidencia validada es del formato **grupal**, no del digital-individual.
+3. **Contribución que interesa a academia y patrocinadores**: hay poca evidencia de CST **digital/individual en hispanohablantes de baja alfabetización digital**. Documentar y compartir lo aprendido sería aporte original.
 
 ## 2.6 Síntesis para el producto
 

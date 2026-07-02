@@ -13,7 +13,7 @@ Cada afirmación relevante está etiquetada según su grado de verificación:
 | ❌ **Refutado** | La revisión encontró que la afirmación no se sostiene como estaba redactada. |
 | 🔎 **Dato de contexto** | Proveniente de resúmenes de búsqueda, no de lectura completa de la fuente. Tratar como pista a confirmar. |
 
-> **Nota metodológica**: la investigación se hizo en **dos rondas**. La ronda 1 (24 fuentes, 63 afirmaciones) sentó las bases; su síntesis automática se interrumpió por límite de sesión y se sintetizó a mano. La ronda 2 (26 fuentes, 22 afirmaciones, **todas confirmadas 3-0**) cerró los vacíos abiertos sobre licencias, instrumentos en español, regulación, financiación, accesibilidad y terapias. Las citas textuales y URLs son las que devolvió la investigación; ver [`fuentes.md`](fuentes.md) para la bibliografía completa con evaluación de calidad de cada fuente. Varias fuentes primarias (w3.org, PMC, Elsevier, AWS, NICE) bloquean el fetch automático (403), por lo que algunas citas se confirmaron vía snippets de búsqueda concordantes.
+> **Nota metodológica**: la investigación se hizo en **tres rondas**. La ronda 1 (24 fuentes, 63 afirmaciones) sentó las bases; su síntesis automática se interrumpió por límite de sesión y se sintetizó a mano. La ronda 2 (26 fuentes, **22 afirmaciones confirmadas 3-0**) cerró los vacíos sobre licencias, instrumentos en español, regulación, financiación, accesibilidad y terapias. La ronda 3 (28 fuentes, **25 afirmaciones confirmadas 3-0**) cerró los seis vacíos restantes: copyright de cada instrumento, INVIMA/Ley 1581, financiadores (Google/Cloudflare/OPS), CST digital-individual y CST-ES, y recursos de lenguaje llano en español. Ver [`fuentes.md`](fuentes.md) para la bibliografía completa con evaluación de calidad. Varias fuentes primarias (w3.org, PMC, Elsevier, AWS, NICE, INVIMA, RAE) bloquean el fetch automático (403); esas citas se confirmaron vía snippets de búsqueda concordantes.
 
 ## Índice
 
@@ -32,6 +32,8 @@ Cada afirmación relevante está etiquetada según su grado de verificación:
 2. **Para baja alfabetización, el Fototest (± AD8) es probablemente el mejor punto de partida** ✅: validado en español, **independiente de la lectoescritura**, ~2,8 min, mejor utilidad poblacional (aROC 0,851; 0,875 con el AD8 respondido por el cuidador). Es más apto que el propio Mini-Cog para nuestra población. (Confirmar copyright con autores.)
 
 3. **El Mini-Cog es utilizable por una ONG** ✅: su licencia permite **uso no comercial gratuito**, sin modificar el instrumento y conservando la atribución. Robusto en baja escolaridad (83% vs. 81% del MMSE) y validado en español. Buena alternativa/complemento del Fototest.
+
+   ⚠️ **Matiz de la 3ª ronda**: **ningún** instrumento en español (Fototest, Eurotest, T@M, AD8) es de dominio público — permiten uso clínico no comercial, pero **digitalizarlos requiere permiso escrito del autor** (el Fototest tiene cláusula "SinObraDerivada"). El **GPCOG** y el **Mini-Cog** son las vías de menor fricción legal. (Ver §1.4.)
 
 4. **La evidencia respalda el entrenamiento cognitivo en Deterioro Cognitivo Leve (DCL/MCI), no en demencia establecida.** Meta-análisis: efecto moderado en DCL (g=0.35 ✅); en demencia el efecto es débil y depende de realidad virtual/consolas (✅). **El público diana primario del portal debe ser DCL.**
 

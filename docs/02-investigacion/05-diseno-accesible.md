@@ -72,7 +72,23 @@ Estos son la referencia normativa citada en [04-diseño-ux](../04-diseno-ux-acce
 >
 > ⚠️ **Matices** (el patrón de 1500 palabras tuvo voto dividido 2-1): los patrones COGA son **guía no normativa**; la lista de 1500 palabras es específica del léxico inglés (**no existe equivalente listo en español** — habría que construirlo o aproximarlo); y "dificultad severa de lenguaje" no es idéntico a "adulto mayor de baja alfabetización". Los principios transfieren al español, pero **requieren adaptación local** y validación con usuarios (§5.2).
 
-**Acción**: derivar de estos 8 objetivos un **checklist de accesibilidad cognitiva en español** como criterio de aceptación de cada pantalla, y construir/adaptar una **lista de vocabulario común en español** para los textos de cara a la persona.
+**Acción**: derivar de estos 8 objetivos un **checklist de accesibilidad cognitiva en español** como criterio de aceptación de cada pantalla.
+
+### Recursos de lenguaje llano y lectura fácil en español — cierre del vacío (3ª ronda) ✅
+
+El equivalente español a las "~1500 palabras comunes" de COGA y las guías de redacción **sí existen** y son accionables:
+
+| Recurso | Qué aporta | Uso en Cognos |
+|---|---|---|
+| **RAE — Listas de frecuencia CREA** (corpus.rae.es/lfrecuencias.html) | Listas oficiales de las **1.000 / 5.000 / 10.000 formas más frecuentes** del español. Las 1.000 más frecuentes ≈ 66% del uso | **Vocabulario base** para decidir qué palabras son "sencillas" al redactar |
+| **rivaquiroga/frecuencias-crea** (GitHub, CSV) | La lista CREA en formato **legible por máquina** | Construir un **verificador automático de "palabra frecuente vs. rara"** en el CMS del portal |
+| **Norma UNE 153101:2018 EX — Lectura Fácil** | Primera norma técnica mundial de Lectura Fácil: palabras sencillas, frases cortas, ortotipografía, diseño, e **incluye validación cognitiva con "validadores"** (personas con dificultades de comprensión) | **Referencia normativa central** para el texto en español; adoptar su fase de validación con usuarios reales |
+| **Plena inclusión** (España) | Org. de referencia en Lectura Fácil: materiales, **formación de validadores**, metodología UNE 153101/153102 | Aliado potencial y fuente de método para validar contenidos |
+| **Olga Carreras — resumen UNE 153101 × WCAG** | Traduce la norma a recomendaciones concretas de redacción y pantalla, cruzándola con COGA/WCAG | Guía práctica para el equipo de desarrollo |
+
+> **Distinción clave** (Observatorio Nebrija): **"lenguaje claro"** (población general, base de la ISO 24495) ≠ **"lectura fácil"** (UNE 153101, personas con dificultades de comprensión, con validación cognitiva). **Decisión de diseño**: usar **lenguaje claro** en la capa informativa general del portal y **lectura fácil (UNE 153101)** en los textos que ve la persona con deterioro cognitivo o baja alfabetización (evaluación, instrucciones de ejercicios).
+>
+> **Acción**: integrar la lista CREA (vía el repo CSV) como validador de vocabulario en el CMS, y adoptar la UNE 153101 + validación con usuarios como criterio editorial de los contenidos de cara a la persona.
 
 ## 5.6 Conexión con la evidencia de eficacia
 

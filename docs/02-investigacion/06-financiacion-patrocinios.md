@@ -25,11 +25,16 @@ Dos programas quedaron **documentados en detalle** en la 2ª ronda (✅ verifica
 - ✅ **AWS Nonprofit Credit Program** — **crédito promocional escalonado según presupuesto**: **US$1.000** (presupuesto < US$10M, *nuestra categoría*), US$2.000 (US$10–50M) o US$5.000 (> US$50M). **Un crédito por año fiscal** (1 jul–30 jun), cada uno **válido 12 meses**. **No se solicita directamente a AWS**: se distribuye a través de **TechSoup y sus socios regionales** (TechSoup valida ONG en 236 países, incl. TechSoup España y socios en LatAm como **MAKAIA** y **Cemefi** en México). *Nota: el programa tuvo "expansión global" reciente a ~50 países; confirmar que el país objetivo está incluido.*
 - ✅ **Microsoft for Nonprofits** — **precios con descuento** en nube (Azure) y algunas licencias on-premise. Elegibilidad: **estatus legal equivalente a 501(c)(3)** con **misión de beneficio comunitario** (socorro, educación, bienestar social, cultura, medio ambiente, derechos humanos, sociedad civil). **Excluye** gobiernos/ONU, escuelas/universidades, servicios públicos, entidades financieras, asociaciones profesionales/deportivas/políticas/sindicales y personas individuales. Distingue **grants** (solo empleados pagados + directivos no remunerados) de **descuentos** (todo el personal, incl. voluntarios). *La página de elegibilidad no publica montos de crédito Azure concretos; la cifra "US$2.000/año" que circula viene de otras páginas de Azure, verificar.*
 
-Aún por investigar (3ª ronda):
-- 🔎 **Google for Nonprofits** / Google.org (Google Cloud y Workspace) — elegibilidad y montos vigentes.
-- 🔎 **Cloudflare Project Galileo** / Startups for Nonprofits (protección y CDN gratuitas para proyectos de interés público).
+Confirmados en la **3ª ronda** (✅):
 
-> Estos no son "patrocinio" en efectivo, pero **eliminan el mayor costo recurrente** y hacen creíble el modelo de operación gratuita ante otros patrocinadores. **Requisito previo común: tener figura jurídica de ONG y validarse ante TechSoup** — otra razón para constituir la entidad en Fase 0.
+- ✅ **Google for Nonprofits** — disponible en **Colombia, España y LatAm** (Argentina, Brasil, Chile, Ecuador, México, Perú, Puerto Rico). Agrupa **Google Ad Grants** (hasta **US$10.000/mes en publicidad Google Ads en especie** — clave para atraer usuarios al portal), Workspace for Nonprofits, YouTube Nonprofit y créditos de Maps. **Los hospitales/entidades de salud NO son elegibles, pero las fundaciones/brazos caritativos SÍ** → una **fundación** de tamizaje cognitivo califica; un programa operado por un hospital, no. Validación vía socio de Google (Percent/Goodstack). *No todos los productos están en todos los países: confirmar al registrarse.*
+- ✅ **Cloudflare — Startups for Nonprofits** — hasta **US$250.000 en créditos** de productos (incl. IA, bases de datos, seguridad). **Por selección** (los equipos de Cloudflare eligen una cohorte). La 1ª cohorte tuvo plazo hasta **1 dic 2025**; vigilar próximas convocatorias.
+- ✅ **Cloudflare Project Galileo** — **protección de ciberseguridad gratuita** (equivalente al plan Business) para organizaciones de **derechos humanos, sociedad civil, periodismo y democracia**. **Aplicación permanente, sin coste ni plazo.** Vía gratuita alternativa a la cohorte de pago.
+- ✅ **OPS/OMS — Década del Envejecimiento Saludable 2021-2030** — más que créditos directos, ofrece **marco de política, alianzas y respaldo institucional**; útil para posicionar el proyecto y buscar cofinanciación (paho.org/en/healthy-aging).
+
+> Estos no son "patrocinio" en efectivo, pero **eliminan el mayor costo recurrente** y hacen creíble el modelo de operación gratuita ante otros patrocinadores. **Requisito previo común: tener figura jurídica de ONG** (y validarse ante TechSoup para AWS, ante Percent/Goodstack para Google) — otra razón para constituir la entidad en Fase 0.
+>
+> ⚠️ **Nota de elegibilidad**: para Google (y probablemente otros), **constituirse como fundación de interés social, no como entidad de salud/hospitalaria**, es lo que abre la puerta.
 
 ### B. Banca de desarrollo y organismos multilaterales
 - ✅ **BID / BID Lab** (confirmado como canal, §6.1).
