@@ -23,6 +23,9 @@ El proyecto se sostiene mediante **patrocinios y alianzas** (fundaciones, progra
 | [04 — Diseño, UX y accesibilidad](docs/04-diseno-ux-accesibilidad.md) | Accesibilidad cognitiva, diseño para adultos mayores, multilingüismo |
 | [05 — Modelo de datos](docs/05-modelo-datos.md) | Entidades principales, privacidad y consentimiento |
 | [06 — Hoja de ruta](docs/06-hoja-de-ruta.md) | Fases de implementación y criterios de éxito |
+| [07 — Plan maestro de acción (Fase 0)](docs/07-plan-maestro-fase-0.md) | Checklist con contactos concretos, permisos y decisiones antes de codificar |
+| [08 — Especificaciones técnicas](docs/08-especificaciones-tecnicas/) | Esquemas declarativos de instrumentos y ejercicios, wireframes de accesibilidad |
+| [Brief para patrocinadores](docs/brief-patrocinadores.html) | Resumen visual de una página (HTML autónomo) para fundaciones y asesores clínicos |
 
 ## Principios rectores
 

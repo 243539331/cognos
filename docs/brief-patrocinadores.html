@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cognos — Brief para patrocinadores</title>
+<meta name="description" content="Portal gratuito de tamizaje y estimulación cognitiva para adultos mayores vulnerables. Resumen para patrocinadores y asesores clínicos.">
+</head>
+<body>
+<style>
+  :root {
+    --paper: #FAF9F5;
+    --paper-2: #F3F0E9;
+    --ink: #17282A;
+    --teal: #0F5B57;
+    --teal-deep: #0A403D;
+    --teal-soft: #E4EDEB;
+    --teal-tint: #EDF3F1;
+    --ochre: #C0722C;
+    --muted: #5C6C6A;
+    --line: #DDD9CF;
+    --band-ok: #3F8F5B;
+    --band-watch: #D99A2B;
+    --band-refer: #CB6543;
+    --serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 19px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+
+  section { padding: 62px 0; }
+  section.tint { background: var(--teal-tint); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--teal);
+    margin: 0 0 14px;
+  }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; text-wrap: balance; color: var(--ink); }
+  h1 { font-size: clamp(2.1rem, 6vw, 3rem); line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 22px; }
+  h2 { font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.18; margin: 0 0 18px; }
+  h3 { font-size: 1.12rem; line-height: 1.3; margin: 0 0 6px; }
+
+  p { margin: 0 0 18px; max-width: 66ch; }
+  .lead { font-size: 1.22rem; line-height: 1.5; color: #24393B; }
+  .muted { color: var(--muted); }
+  strong { font-weight: 650; }
+
+  /* Hero */
+  .hero { padding-top: 76px; padding-bottom: 30px; }
+  .hero .kicker {
+    display: inline-block;
+    font-size: 0.74rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 600;
+    color: var(--teal); background: var(--teal-soft);
+    padding: 7px 13px; border-radius: 100px; margin-bottom: 26px;
+  }
+  .hero .audience {
+    margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line);
+    font-size: 0.95rem; color: var(--muted);
+  }
+  .hero .audience b { color: var(--ink); font-weight: 600; }
+
+  /* Stats */
+  .stats { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+  .stat {
+    flex: 1 1 180px; background: var(--paper); border: 1px solid var(--line);
+    border-radius: 12px; padding: 20px 22px;
+  }
+  .stat .n { font-family: var(--serif); font-size: 2rem; line-height: 1; color: var(--teal); font-variant-numeric: tabular-nums; }
+  .stat .l { font-size: 0.92rem; color: var(--muted); margin-top: 8px; }
+
+  /* Four functions */
+  .grid4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px; }
+  .fn {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+    padding: 24px 24px 26px; border-top: 3px solid var(--teal);
+  }
+  .fn .step {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
+    color: var(--ochre); margin-bottom: 12px;
+  }
+  .fn p { font-size: 0.98rem; margin: 0; color: #33403F; }
+
+  /* Evidence list */
+  .ev { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-direction: column; gap: 18px; }
+  .ev li { display: flex; gap: 16px; align-items: flex-start; }
+  .ev .mark {
+    flex: none; width: 34px; height: 34px; border-radius: 8px; background: var(--teal-soft);
+    color: var(--teal-deep); font-family: var(--serif); font-size: 1rem; font-weight: 700;
+    display: grid; place-items: center; font-variant-numeric: tabular-nums;
+  }
+  .ev p { margin: 0; font-size: 1.02rem; }
+  .disclaimer {
+    margin-top: 28px; padding: 16px 20px; border-left: 3px solid var(--ochre);
+    background: #F7F1E7; font-size: 0.96rem; color: #4A3F2E; border-radius: 0 8px 8px 0;
+  }
+
+  /* Semáforo */
+  .semaforo { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; }
+  .band {
+    display: flex; align-items: center; gap: 16px; padding: 16px 20px;
+    border-radius: 12px; background: var(--paper); border: 1px solid var(--line);
+  }
+  .dot { flex: none; width: 20px; height: 20px; border-radius: 50%; box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
+  .band h3 { margin: 0 0 2px; font-family: var(--sans); font-size: 1rem; font-weight: 650; }
+  .band span { font-size: 0.92rem; color: var(--muted); }
+  .band .g { background: var(--band-ok); }
+  .band .y { background: var(--band-watch); }
+  .band .r { background: var(--band-refer); }
+  .cap { font-size: 0.92rem; color: var(--muted); margin-top: 16px; font-style: italic; }
+
+  /* Pillars */
+  .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
+  .pillar { padding: 4px 0; }
+  .pillar h3 { font-family: var(--sans); font-size: 1.02rem; font-weight: 650; margin-bottom: 4px; color: var(--teal-deep); }
+  .pillar p { font-size: 0.96rem; margin: 0; color: #37423F; }
+
+  /* Ask */
+  .ask { display: flex; flex-direction: column; gap: 14px; margin-top: 26px; }
+  .ask .row {
+    display: flex; gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line);
+  }
+  .ask .row:first-child { border-top: 1px solid var(--line); }
+  .ask .who { flex: none; width: 150px; font-weight: 650; color: var(--teal-deep); font-size: 0.98rem; }
+  .ask .what { font-size: 0.98rem; color: #37423F; }
+
+  /* Footer */
+  footer { padding: 44px 0 60px; border-top: 1px solid var(--line); }
+  footer p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  footer .brand { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); margin-bottom: 8px; }
+
+  a { color: var(--teal); }
+  :focus-visible { outline: 3px solid var(--ochre); outline-offset: 2px; border-radius: 3px; }
+
+  .reveal { opacity: 0; transform: translateY(10px); animation: rise 0.7s ease forwards; }
+  .r2 { animation-delay: 0.08s; }
+  .r3 { animation-delay: 0.16s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 18px; }
+    .grid4, .pillars { grid-template-columns: 1fr; }
+    .ask .row { flex-direction: column; gap: 4px; }
+    .ask .who { width: auto; }
+  }
+</style>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker reveal">Proyecto sin ánimo de lucro · En planeación</span>
+    <h1 class="reveal r2">Salud cognitiva para quienes hoy no llegan a un especialista</h1>
+    <p class="lead reveal r3">Cognos es un portal <strong>gratuito</strong> que evalúa, orienta y ejercita la función cognitiva de adultos mayores en situación de vulnerabilidad, y acompaña su progreso en el tiempo.</p>
+    <p class="audience reveal r3">Un resumen para <b>fundaciones</b>, <b>entidades de salud</b>, <b>asesores clínicos</b> y <b>programas de nube para ONG</b>.</p>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <p class="eyebrow">El problema</p>
+    <h2>La población mayor crece más rápido que la capacidad de atenderla</h2>
+    <p>Donde no hay neurólogos ni neuropsicólogos, el deterioro cognitivo se detecta tarde y la estimulación cognitiva —cara o inexistente— no llega a quien más la necesita. Las familias quedan solas frente a un proceso que no comprenden.</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="n">80M+</div>
+        <div class="l">personas mayores de 60 años en América Latina y el Caribe hoy (según el BID)</div>
+      </div>
+      <div class="stat">
+        <div class="n">~200M</div>
+        <div class="l">proyectadas en 30 años en la región</div>
+      </div>
+      <div class="stat">
+        <div class="n">$0</div>
+        <div class="l">costo para la persona: Cognos es y será gratuito</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">El enfoque</p>
+    <h2>Un ciclo completo, de la evaluación al seguimiento</h2>
+    <div class="grid4">
+      <div class="fn">
+        <div class="step">Evaluar</div>
+        <h3>Tamizaje validado</h3>
+        <p>Instrumentos validados en español y aptos para baja alfabetización, como el Fototest y el Mini-Cog, aplicables de forma asistida por un cuidador.</p>
+      </div>
+      <div class="fn">
+        <div class="step">Orientar</div>
+        <h3>Un perfil claro</h3>
+        <p>Un resultado comprensible por dominios cognitivos y, cuando corresponde, la recomendación de buscar valoración profesional. Nunca un diagnóstico.</p>
+      </div>
+      <div class="fn">
+        <div class="step">Ejercitar</div>
+        <h3>Estimulación con evidencia</h3>
+        <p>Un plan personalizado inspirado en la Terapia de Estimulación Cognitiva (CST), la intervención no farmacológica recomendada por NICE.</p>
+      </div>
+      <div class="fn">
+        <div class="step">Seguir</div>
+        <h3>Progreso en el tiempo</h3>
+        <p>Un tablero cuantitativo y cualitativo, con un informe de una página para llevar a la consulta médica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <p class="eyebrow">Con base en evidencia</p>
+    <h2>Cada decisión descansa en fuentes verificadas</h2>
+    <ul class="ev">
+      <li>
+        <span class="mark">1</span>
+        <p>El entrenamiento cognitivo digital mejora la cognición en el <strong>deterioro cognitivo leve</strong>, con efecto moderado (g = 0,35 en 17 ensayos controlados).</p>
+      </li>
+      <li>
+        <span class="mark">2</span>
+        <p>El <strong>Mini-Cog</strong> conserva su precisión incluso en personas con muy baja escolaridad (83 % frente al 81 % del MMSE).</p>
+      </li>
+      <li>
+        <span class="mark">3</span>
+        <p>La <strong>CST</strong> es coste-efectiva, es la única terapia no farmacológica recomendada por NICE para la cognición, y ya se adaptó a entornos de bajos recursos y baja alfabetización.</p>
+      </li>
+    </ul>
+    <p class="disclaimer">Investigación de tres rondas con verificación de fuentes primarias. Somos deliberadamente prudentes: <strong>no prometemos prevenir ni revertir la demencia</strong>. Hablamos de estimular y mantener la función.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Resultados como orientación</p>
+    <h2>Le decimos a la persona qué hacer, no qué enfermedad tiene</h2>
+    <div class="semaforo">
+      <div class="band">
+        <span class="dot g"></span>
+        <div><h3>Sin señales de alerta</h3><span>Seguir con hábitos saludables y repetir la evaluación más adelante.</span></div>
+      </div>
+      <div class="band">
+        <span class="dot y"></span>
+        <div><h3>Conviene observar</h3><span>Cuidar sueño, ánimo y actividad; volver a evaluar en unos meses.</span></div>
+      </div>
+      <div class="band">
+        <span class="dot r"></span>
+        <div><h3>Se sugiere valoración profesional</h3><span>Acompañamos con información concreta sobre cómo y dónde buscarla.</span></div>
+      </div>
+    </div>
+    <p class="cap">La persona ve un semáforo y un mensaje amable, no un puntaje clínico crudo ni una etiqueta.</p>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <p class="eyebrow">Principios</p>
+    <h2>Diseñado para cuidar, también, la confianza</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <h3>Tamizaje, no diagnóstico</h3>
+        <p>Complementamos al sistema de salud y derivamos; no lo sustituimos. Es, además, la postura regulatoria correcta.</p>
+      </div>
+      <div class="pillar">
+        <h3>Privacidad por diseño</h3>
+        <p>Los datos cognitivos son datos sensibles de salud: seudonimización, cifrado, mínima recolección y sin publicidad.</p>
+      </div>
+      <div class="pillar">
+        <h3>Accesibilidad radical</h3>
+        <p>Pensado para adultos mayores, baja alfabetización y teléfonos de gama baja, siguiendo lectura fácil y las pautas W3C COGA.</p>
+      </div>
+      <div class="pillar">
+        <h3>Abierto y replicable</h3>
+        <p>Código y documentación abiertos, para que otras organizaciones puedan llevarlo a sus comunidades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Cómo se sostiene</p>
+    <h2>Costo de operación cercano a cero, por diseño</h2>
+    <p>La infraestructura se cubre con programas de nube para ONG (AWS, Google, Microsoft, Cloudflare), que ya tenemos identificados. Eso libera cada aporte para lo que de verdad importa: llegar a las poblaciones que hoy no acceden a estos servicios.</p>
+    <div class="ask">
+      <div class="row"><div class="who">Aliados clínicos</div><div class="what">Neuropsicología, geriatría o terapia ocupacional que revisen instrumentos y contenidos.</div></div>
+      <div class="row"><div class="who">Organizaciones piloto</div><div class="what">Centros de día y fundaciones de adulto mayor donde probar y derivar.</div></div>
+      <div class="row"><div class="who">Patrocinadores</div><div class="what">Fundaciones y donantes que hagan posible el servicio gratuito y su expansión.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="brand">Cognos</p>
+    <p>Proyecto sin ánimo de lucro · Fase de planeación · Plan, arquitectura y dossier de investigación completos disponibles para revisión.</p>
+  </div>
+</footer>
+</body>
+</html>
