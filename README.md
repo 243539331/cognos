@@ -11,7 +11,20 @@ El proyecto se sostiene mediante **patrocinios y alianzas** (fundaciones, progra
 
 ## Estado actual
 
-📋 **Fase de planeación** — todavía no hay código. Este repositorio contiene la investigación, la arquitectura y el diseño que servirán de base para la implementación.
+🚧 **Prototipo del MVP en desarrollo.** Ya existe un primer prototipo funcional (Next.js) que implementa el flujo completo — entrada, consentimiento, evaluación, resultado, ejercicios y tablero del cuidador — corriendo sobre **contenido de demostración**, porque ningún instrumento clínico real (Fototest, Mini-Cog, CST, etc.) tiene aún permiso escrito de digitalización (ver [docs/02-investigacion/01-instrumentos-evaluacion.md](docs/02-investigacion/01-instrumentos-evaluacion.md) y [docs/07-plan-maestro-fase-0.md](docs/07-plan-maestro-fase-0.md)). Este repositorio también contiene la investigación, la arquitectura y el diseño que fundamentan esas decisiones.
+
+### Desarrollo local
+
+```bash
+npm install
+cp .env.example .env        # solo necesario cuando se conecte la base de datos
+npm run dev                 # http://localhost:3000
+npm test                    # motor de instrumentos y ejercicios (vitest)
+npm run typecheck
+npm run build
+```
+
+El prototipo actual usa `localStorage` para conectar las pantallas (evaluación → resultado → ejercicios → tablero) mientras no hay backend conectado; `prisma/schema.prisma` ya modela las entidades reales (ver [docs/05-modelo-datos.md](docs/05-modelo-datos.md)) para cuando se conecte PostgreSQL.
 
 ## Documentación
 
