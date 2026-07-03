@@ -8,9 +8,14 @@ describe("loader de contenido (smoke test del andamiaje)", () => {
     expect(instrumentos[0].id).toBe("demo-orientacion");
   });
 
-  it("carga el ejercicio de demostración y pasa el esquema", () => {
+  it("carga los ejercicios de demostración y pasan el esquema", () => {
+    // El orden de listarEjerciciosPublicables() no está garantizado (depende
+    // del listado del sistema de archivos), así que se verifica presencia,
+    // no posición — ver también test/exercise-engine.test.ts y e2e/.
     const ejercicios = listarEjerciciosPublicables();
-    expect(ejercicios.length).toBeGreaterThanOrEqual(1);
-    expect(ejercicios[0].id).toBe("demo-emparejar-objetos");
+    const ids = ejercicios.map((e) => e.id);
+    expect(ids).toEqual(
+      expect.arrayContaining(["demo-emparejar-objetos", "demo-emparejar-rutina", "demo-emparejar-categorias"])
+    );
   });
 });

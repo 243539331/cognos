@@ -1,0 +1,59 @@
+# CONTENIDO DE DEMOSTRACIÓN — contenido original, no reproduce materiales con
+# copyright. Ver content/README.md.
+
+id: demo-emparejar-rutina
+nombre: "Demostración: la rutina del día (NO CLÍNICO)"
+version: 0.1.0
+estado: publicado
+idioma: es
+
+licencia:
+  tipo: propio
+  titular: "Equipo Cognos (contenido original de demostración)"
+  permiso_uso: true
+  verificada_por: "equipo-cognos"
+
+dominio_primario: atencion
+dominios_secundarios: [memoria]
+principio_cst: "orientación a la realidad"
+sin_fallo_explicito: true
+
+niveles:
+  - nivel: 1
+    descripcion: "3 pares, sin límite de tiempo, con pistas"
+    parametros: { elementos: 3, tiempo_s: null, pistas: true }
+  - nivel: 2
+    descripcion: "5 pares, sin límite de tiempo, con pistas"
+    parametros: { elementos: 5, tiempo_s: null, pistas: true }
+  - nivel: 3
+    descripcion: "7 pares, sin límite de tiempo, sin pistas"
+    parametros: { elementos: 7, tiempo_s: null, pistas: false }
+
+adaptacion:
+  regla_subir: "2 sesiones consecutivas con aciertos >= 80%"
+  regla_bajar: "aciertos < 50% en una sesión"
+
+accesibilidad:
+  instrucciones: { texto: true, audio: true, ilustracion: true }
+  boton_escuchar_de_nuevo: true
+  entrada: [toque, voz]
+  objetivo_tactil_min_px: 44
+  tiempo_limite: ninguno
+  lenguaje: lectura-facil
+
+contenido:
+  tipo: emparejar
+  consigna: "Toque el momento del día con lo que se hace en ese momento."
+  offline: true
+  recursos: []
+  items:
+    - { id: par-1, a: "Despertador", b: "Mañana" }
+    - { id: par-2, a: "Cepillo de dientes", b: "Antes de dormir" }
+    - { id: par-3, a: "Almuerzo", b: "Mediodía" }
+    - { id: par-4, a: "Pijama", b: "Noche" }
+    - { id: par-5, a: "Café", b: "Desayuno" }
+    - { id: par-6, a: "Sol alto", b: "Tarde" }
+    - { id: par-7, a: "Luna", b: "Noche" }
+
+telemetria:
+  registra: [aciertos, errores, tiempo_total_s, nivel_alcanzado, completada]

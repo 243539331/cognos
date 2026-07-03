@@ -10,7 +10,7 @@ import { EscucharBoton } from "@/components/EscucharBoton";
 import { BotonGrande } from "@/components/BotonGrande";
 import { Semaforo } from "@/components/Semaforo";
 import { claseBanda } from "@/lib/instruments/engine";
-import { obtenerUltimaEvaluacion, type EvaluacionGuardada } from "@/lib/store/sesionLocal";
+import { obtenerUltimaEvaluacion, type EvaluacionGuardada } from "@/lib/api/client";
 
 const TEXTO_ORIENTACION_VALORACION =
   "Puede acercarse al centro de salud o a su EPS más cercana y pedir una cita con su médico de cabecera. Cuéntele estos resultados y pida una valoración de la memoria.";
@@ -18,12 +18,24 @@ const TEXTO_ORIENTACION_VALORACION =
 export default function ResultadoPage() {
   const [evaluacion, setEvaluacion] = useState<EvaluacionGuardada | null>(null);
   const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState(false);
   const [mostrarValoracion, setMostrarValoracion] = useState(false);
 
   useEffect(() => {
-    setEvaluacion(obtenerUltimaEvaluacion());
-    setCargando(false);
+    obtenerUltimaEvaluacion()
+      .then(setEvaluacion)
+      .catch(() => setError(true))
+      .finally(() => setCargando(false));
   }, []);
+
+  if (error) {
+    return (
+      <main className="flex min-h-[80vh] flex-col items-center justify-center gap-6 text-center">
+        <p className="text-persona-lg font-serif">No pudimos cargar su resultado.</p>
+        <p className="text-persona-base text-muted">Revise su conexión e inténtelo de nuevo.</p>
+      </main>
+    );
+  }
 
   if (cargando) {
     return (

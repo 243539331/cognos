@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { recomendarPlan, ajustarNivel, bancoEscaso } from "@/lib/exercises/engine";
-import { obtenerEjercicio } from "@/content/loader";
+import { obtenerEjercicio, listarEjerciciosPublicables } from "@/content/loader";
 import type { DesempenoSesion, ResultadoEvaluacion } from "@/content/types";
 
 const adaptacionDemo = {
@@ -60,5 +60,29 @@ describe("motor de ejercicios", () => {
   it("señala cuando el banco de ejercicios de un dominio es escaso", () => {
     expect(bancoEscaso([], 3)).toBe(true);
     expect(bancoEscaso([{} as never, {} as never, {} as never], 3)).toBe(false);
+  });
+
+  it("con varios dominios en el banco, ordena por el dominio más débil real", () => {
+    // Ejercita el banco de contenido completo (memoria, atención, lenguaje) —
+    // ver content/ejercicios/demo-emparejar-{objetos,rutina,categorias}.yaml.
+    const ejercicios = listarEjerciciosPublicables();
+    expect(ejercicios.length).toBeGreaterThanOrEqual(3);
+    expect(new Set(ejercicios.map((e) => e.dominio_primario))).toEqual(
+      new Set(["memoria", "atencion", "lenguaje"])
+    );
+
+    const resultadoAtencionDebil: ResultadoEvaluacion = {
+      puntajeTotal: 3,
+      puntajesPorDominio: [
+        { dominio: "memoria", puntaje: 3 },
+        { dominio: "atencion", puntaje: 0 },
+      ],
+      bandaId: "zona-atencion",
+      bandaEtiqueta: "Conviene observar",
+      mensajeUsuario: "",
+    };
+
+    const plan = recomendarPlan(resultadoAtencionDebil, ejercicios);
+    expect(plan[0].dominio_primario).toBe("atencion");
   });
 });

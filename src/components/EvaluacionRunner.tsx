@@ -7,7 +7,7 @@ import { BotonGrande } from "@/components/BotonGrande";
 import { EscucharBoton } from "@/components/EscucharBoton";
 import { BarraProgreso } from "@/components/BarraProgreso";
 import { calcularResultado } from "@/lib/instruments/engine";
-import { guardarEvaluacion } from "@/lib/store/sesionLocal";
+import { guardarEvaluacion } from "@/lib/api/client";
 
 // Flujo de aplicación de un instrumento — wireframe C,
 // docs/08-especificaciones-tecnicas/wireframes-accesibilidad.md:
@@ -39,6 +39,8 @@ export function EvaluacionRunner({
   const [edad, setEdad] = useState("");
   const [escolaridad, setEscolaridad] = useState("");
   const [respuestas, setRespuestas] = useState<Record<string, number>>({});
+  const [enviando, setEnviando] = useState(false);
+  const [errorEnvio, setErrorEnvio] = useState<string | null>(null);
 
   // Evita un doble envío si el botón "Continuar" recibe dos toques seguidos
   // antes de navegar — relevante para la población objetivo, que puede tener
@@ -50,9 +52,12 @@ export function EvaluacionRunner({
   const esAsistido = modo === "asistido" || modo === "asistida";
   const items = instrumento.items;
 
-  function finalizar(respuestasFinales: Record<string, number>) {
+  async function finalizar(respuestasFinales: Record<string, number>) {
     if (enviadoRef.current) return;
     enviadoRef.current = true;
+    setEnviando(true);
+    setErrorEnvio(null);
+
     const respuestasArray: RespuestaItem[] = items.map((item) => ({
       itemId: item.id,
       valor: respuestasFinales[item.id] ?? 0,
@@ -62,14 +67,24 @@ export function EvaluacionRunner({
       escolaridad: escolaridad === "" ? undefined : escolaridad,
     };
     const resultado = calcularResultado(instrumento, respuestasArray, demografia);
-    guardarEvaluacion({
-      instrumentoId: instrumento.id,
-      fecha: new Date().toISOString(),
-      respuestas: respuestasArray,
-      demografia,
-      resultado,
-    });
-    router.push("/resultado");
+
+    try {
+      await guardarEvaluacion({
+        instrumentoId: instrumento.id,
+        version: instrumento.version,
+        modo: esAsistido ? "ASISTIDA" : "AUTO",
+        respuestas: respuestasArray,
+        demografia,
+        resultado,
+      });
+      router.push("/resultado");
+    } catch {
+      // Sin castigo por error de red (docs/08 wireframes-accesibilidad.md):
+      // se permite reintentar en vez de perder las respuestas ya dadas.
+      enviadoRef.current = false;
+      setEnviando(false);
+      setErrorEnvio("No pudimos guardar sus respuestas. Revise su conexión e inténtelo de nuevo.");
+    }
   }
 
   if (paso === "demografia") {
@@ -150,7 +165,7 @@ export function EvaluacionRunner({
   function continuar() {
     if (valorSeleccionado === null) return;
     if (esUltimo) {
-      finalizar(respuestas);
+      void finalizar(respuestas);
     } else {
       setPaso(idx + 1);
     }
@@ -192,14 +207,20 @@ export function EvaluacionRunner({
         ))}
       </div>
 
+      {errorEnvio && (
+        <div className="tarjeta mt-6 border-band-refer">
+          <p className="text-persona-base">{errorEnvio}</p>
+        </div>
+      )}
+
       <div className="mt-10">
         <BotonGrande
           variante="primario"
-          disabled={valorSeleccionado === null}
-          className={valorSeleccionado === null ? "cursor-not-allowed opacity-50" : ""}
+          disabled={valorSeleccionado === null || enviando}
+          className={valorSeleccionado === null || enviando ? "cursor-not-allowed opacity-50" : ""}
           onClick={continuar}
         >
-          Continuar
+          {enviando ? "Guardando…" : "Continuar"}
         </BotonGrande>
       </div>
     </main>

@@ -14,7 +14,7 @@ import {
   guardarSesionEjercicio,
   obtenerHistorialSesiones,
   type SesionGuardada,
-} from "@/lib/store/sesionLocal";
+} from "@/lib/api/client";
 
 interface ParEmparejar {
   id: string;
@@ -58,34 +58,52 @@ export function SesionEjercicioRunner({ ejercicio }: { ejercicio: Ejercicio }) {
   const finalizadaRef = useRef(false);
 
   useEffect(() => {
-    const historial = obtenerHistorialSesiones(ejercicio.id);
-    historialRef.current = historial;
+    let cancelado = false;
 
-    let nivelCalculado: number;
-    if (historial.length === 0) {
-      nivelCalculado = 1;
-    } else {
-      const ultima = historial[historial.length - 1];
-      const desempenos = historial.map((s) => s.desempeno);
-      nivelCalculado = ajustarNivel(ultima.nivel, ejercicio.niveles.length, desempenos, ejercicio.adaptacion);
+    async function iniciar() {
+      // Lectura best-effort: si falla (p. ej. corte de red), se empieza igual
+      // en nivel 1 en vez de bloquear la sesión (docs/08 wireframes-accesibilidad.md
+      // — "tolera corte de red").
+      let historial: SesionGuardada[] = [];
+      try {
+        historial = await obtenerHistorialSesiones(ejercicio.id);
+      } catch {
+        historial = [];
+      }
+      if (cancelado) return;
+      historialRef.current = historial;
+
+      let nivelCalculado: number;
+      if (historial.length === 0) {
+        nivelCalculado = 1;
+      } else {
+        const ultima = historial[historial.length - 1];
+        const desempenos = historial.map((s) => s.desempeno);
+        nivelCalculado = ajustarNivel(ultima.nivel, ejercicio.niveles.length, desempenos, ejercicio.adaptacion);
+      }
+      nivelCalculado = Math.min(Math.max(nivelCalculado, 1), ejercicio.niveles.length);
+
+      const nivelInfo = ejercicio.niveles[nivelCalculado - 1];
+      const elementosRaw = nivelInfo.parametros.elementos;
+      const n = typeof elementosRaw === "number" ? elementosRaw : 3;
+
+      // El esquema tipa "items" como registros genéricos; el contenido "emparejar"
+      // del YAML trae { id, a, b } en cada uno (ver content/ejercicios/demo-emparejar.yaml).
+      const itemsCrudos = ejercicio.contenido.items as unknown as ParEmparejar[];
+      const pares = itemsCrudos.slice(0, Math.min(n, itemsCrudos.length));
+      totalParesRef.current = pares.length;
+
+      setColumnaA(barajar(pares.map((p) => ({ parId: p.id, texto: p.a }))));
+      setColumnaB(barajar(pares.map((p) => ({ parId: p.id, texto: p.b }))));
+      setNivelActual(nivelCalculado);
+      inicioRef.current = Date.now();
+      setCargando(false);
     }
-    nivelCalculado = Math.min(Math.max(nivelCalculado, 1), ejercicio.niveles.length);
 
-    const nivelInfo = ejercicio.niveles[nivelCalculado - 1];
-    const elementosRaw = nivelInfo.parametros.elementos;
-    const n = typeof elementosRaw === "number" ? elementosRaw : 3;
-
-    // El esquema tipa "items" como registros genéricos; el contenido "emparejar"
-    // del YAML trae { id, a, b } en cada uno (ver content/ejercicios/demo-emparejar.yaml).
-    const itemsCrudos = ejercicio.contenido.items as unknown as ParEmparejar[];
-    const pares = itemsCrudos.slice(0, Math.min(n, itemsCrudos.length));
-    totalParesRef.current = pares.length;
-
-    setColumnaA(barajar(pares.map((p) => ({ parId: p.id, texto: p.a }))));
-    setColumnaB(barajar(pares.map((p) => ({ parId: p.id, texto: p.b }))));
-    setNivelActual(nivelCalculado);
-    inicioRef.current = Date.now();
-    setCargando(false);
+    void iniciar();
+    return () => {
+      cancelado = true;
+    };
     // Solo debe recalcularse si cambia el ejercicio mostrado.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ejercicio.id]);
@@ -94,12 +112,12 @@ export function SesionEjercicioRunner({ ejercicio }: { ejercicio: Ejercicio }) {
   useEffect(() => {
     if (cargando || completada || finalizadaRef.current) return;
     if (totalParesRef.current > 0 && aciertosSet.size === totalParesRef.current) {
-      finalizarSesion();
+      void finalizarSesion();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [aciertosSet, cargando, completada]);
 
-  function finalizarSesion() {
+  async function finalizarSesion() {
     if (finalizadaRef.current) return;
     finalizadaRef.current = true;
 
@@ -118,12 +136,21 @@ export function SesionEjercicioRunner({ ejercicio }: { ejercicio: Ejercicio }) {
       [...desempenosPrevios, desempeno],
       ejercicio.adaptacion
     );
-    guardarSesionEjercicio({
-      ejercicioId: ejercicio.id,
-      fecha: new Date().toISOString(),
-      nivel: nuevoNivel,
-      desempeno,
-    });
+
+    // Guardado best-effort: la sesión se muestra como completada aunque el
+    // guardado falle por un corte de red (docs/08 wireframes-accesibilidad.md
+    // — "sin castigo", "guardado automático, tolera corte de red"). Se pierde
+    // ese registro de progreso, pero no se le impide a la persona terminar.
+    try {
+      await guardarSesionEjercicio({
+        ejercicioId: ejercicio.id,
+        version: ejercicio.version,
+        nivel: nuevoNivel,
+        desempeno,
+      });
+    } catch (error) {
+      console.warn("No se pudo guardar la sesión de ejercicio:", error);
+    }
     setCompletada(true);
   }
 

@@ -15,7 +15,7 @@ import {
   guardarObservacion,
   type EvaluacionGuardada,
   type SesionGuardada,
-} from "@/lib/store/sesionLocal";
+} from "@/lib/api/client";
 import { claseBanda } from "@/lib/instruments/engine";
 
 const COLOR_BANDA: Record<"ok" | "watch" | "refer", string> = {
@@ -78,44 +78,68 @@ export default function PanelPage() {
   const [confirmacion, setConfirmacion] = useState(false);
 
   useEffect(() => {
-    const evals = obtenerEvaluaciones();
-    setEvaluaciones(evals);
-    setSesiones(obtenerTodasLasSesiones());
-    setObservaciones(obtenerObservaciones());
-    setCargando(false);
+    let cancelado = false;
 
-    const ultima = evals[evals.length - 1];
-    if (ultima) {
-      fetch(`/api/instrumento/${encodeURIComponent(ultima.instrumentoId)}`)
-        .then((res) => (res.ok ? res.json() : null))
-        .then((datos) => {
-          const max = datos?.puntuacion?.rango?.max;
-          if (typeof max === "number" && max > 0) setInstrumentoMax(max);
-        })
-        .catch(() => {
-          // Sin respuesta de la API: se usa un máximo de respaldo calculado abajo.
-        });
+    async function cargar() {
+      try {
+        const [evals, sesionesData, observacionesData] = await Promise.all([
+          obtenerEvaluaciones(),
+          obtenerTodasLasSesiones(),
+          obtenerObservaciones(),
+        ]);
+        if (cancelado) return;
+        setEvaluaciones(evals);
+        setSesiones(sesionesData);
+        setObservaciones(observacionesData);
+
+        const ultima = evals[evals.length - 1];
+        if (ultima) {
+          fetch(`/api/instrumento/${encodeURIComponent(ultima.instrumentoId)}`)
+            .then((res) => (res.ok ? res.json() : null))
+            .then((datos) => {
+              const max = datos?.puntuacion?.rango?.max;
+              if (typeof max === "number" && max > 0 && !cancelado) setInstrumentoMax(max);
+            })
+            .catch(() => {
+              // Sin respuesta de la API: se usa un máximo de respaldo calculado abajo.
+            });
+        }
+      } finally {
+        if (!cancelado) setCargando(false);
+      }
     }
+
+    void cargar();
+    return () => {
+      cancelado = true;
+    };
   }, []);
 
-  function manejarGuardarObservacion(evento: FormEvent<HTMLFormElement>) {
+  async function manejarGuardarObservacion(evento: FormEvent<HTMLFormElement>) {
     evento.preventDefault();
     setGuardando(true);
-    guardarObservacion({
-      fecha: new Date().toISOString(),
-      sueno,
-      animo,
-      autonomia,
-      textoLibre: textoLibre.trim() || undefined,
-    });
-    setObservaciones(obtenerObservaciones());
-    setTextoLibre("");
-    setSueno(3);
-    setAnimo(3);
-    setAutonomia(3);
-    setGuardando(false);
-    setConfirmacion(true);
-    setTimeout(() => setConfirmacion(false), 3000);
+    try {
+      await guardarObservacion({
+        fecha: new Date().toISOString(),
+        sueno,
+        animo,
+        autonomia,
+        textoLibre: textoLibre.trim() || undefined,
+      });
+      setObservaciones(await obtenerObservaciones());
+      setTextoLibre("");
+      setSueno(3);
+      setAnimo(3);
+      setAutonomia(3);
+      setConfirmacion(true);
+      setTimeout(() => setConfirmacion(false), 3000);
+    } catch {
+      setConfirmacion(false);
+      // Deja el formulario tal cual para que la persona pueda reintentar
+      // sin perder lo que ya escribió (tolerancia a corte de red).
+    } finally {
+      setGuardando(false);
+    }
   }
 
   if (cargando) {

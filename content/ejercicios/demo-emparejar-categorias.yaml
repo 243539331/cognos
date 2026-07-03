@@ -1,0 +1,60 @@
+# CONTENIDO DE DEMOSTRACIÓN — contenido original, no reproduce materiales con
+# copyright. Ver content/README.md.
+
+id: demo-emparejar-categorias
+nombre: "Demostración: cada cosa en su grupo (NO CLÍNICO)"
+version: 0.1.0
+estado: publicado
+idioma: es
+
+licencia:
+  tipo: propio
+  titular: "Equipo Cognos (contenido original de demostración)"
+  permiso_uso: true
+  verificada_por: "equipo-cognos"
+
+dominio_primario: lenguaje
+dominios_secundarios: [memoria]
+principio_cst: "categorización"
+sin_fallo_explicito: true
+
+niveles:
+  - nivel: 1
+    descripcion: "3 pares, sin límite de tiempo, con pistas"
+    parametros: { elementos: 3, tiempo_s: null, pistas: true }
+  - nivel: 2
+    descripcion: "5 pares, sin límite de tiempo, con pistas"
+    parametros: { elementos: 5, tiempo_s: null, pistas: true }
+  - nivel: 3
+    descripcion: "8 pares, sin límite de tiempo, sin pistas"
+    parametros: { elementos: 8, tiempo_s: null, pistas: false }
+
+adaptacion:
+  regla_subir: "2 sesiones consecutivas con aciertos >= 80%"
+  regla_bajar: "aciertos < 50% en una sesión"
+
+accesibilidad:
+  instrucciones: { texto: true, audio: true, ilustracion: true }
+  boton_escuchar_de_nuevo: true
+  entrada: [toque, voz]
+  objetivo_tactil_min_px: 44
+  tiempo_limite: ninguno
+  lenguaje: lectura-facil
+
+contenido:
+  tipo: emparejar
+  consigna: "Toque cada palabra con su grupo."
+  offline: true
+  recursos: []
+  items:
+    - { id: par-1, a: "Manzana", b: "Fruta" }
+    - { id: par-2, a: "Perro", b: "Animal" }
+    - { id: par-3, a: "Silla", b: "Mueble" }
+    - { id: par-4, a: "Camisa", b: "Ropa" }
+    - { id: par-5, a: "Rosa", b: "Flor" }
+    - { id: par-6, a: "Martillo", b: "Herramienta" }
+    - { id: par-7, a: "Autobús", b: "Transporte" }
+    - { id: par-8, a: "Guitarra", b: "Instrumento musical" }
+
+telemetria:
+  registra: [aciertos, errores, tiempo_total_s, nivel_alcanzado, completada]

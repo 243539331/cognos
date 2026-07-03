@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Ejercicio } from "@/content/types";
 import { EscucharBoton } from "@/components/EscucharBoton";
-import { obtenerUltimaEvaluacion } from "@/lib/store/sesionLocal";
+import { obtenerUltimaEvaluacion } from "@/lib/api/client";
 import { recomendarPlan } from "@/lib/exercises/engine";
 
 const TEXTO_INTRO = "Elija un ejercicio para practicar.";
@@ -17,12 +17,11 @@ export function ListaEjercicios({ ejercicios }: { ejercicios: Ejercicio[] }) {
   const [lista, setLista] = useState<Ejercicio[]>(ejercicios);
 
   useEffect(() => {
-    const evaluacion = obtenerUltimaEvaluacion();
-    if (evaluacion) {
-      setLista(recomendarPlan(evaluacion.resultado, ejercicios));
-    } else {
-      setLista(ejercicios);
-    }
+    obtenerUltimaEvaluacion()
+      .then((evaluacion) => {
+        setLista(evaluacion ? recomendarPlan(evaluacion.resultado, ejercicios) : ejercicios);
+      })
+      .catch(() => setLista(ejercicios));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

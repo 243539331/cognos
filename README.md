@@ -11,20 +11,31 @@ El proyecto se sostiene mediante **patrocinios y alianzas** (fundaciones, progra
 
 ## Estado actual
 
-🚧 **Prototipo del MVP en desarrollo.** Ya existe un primer prototipo funcional (Next.js) que implementa el flujo completo — entrada, consentimiento, evaluación, resultado, ejercicios y tablero del cuidador — corriendo sobre **contenido de demostración**, porque ningún instrumento clínico real (Fototest, Mini-Cog, CST, etc.) tiene aún permiso escrito de digitalización (ver [docs/02-investigacion/01-instrumentos-evaluacion.md](docs/02-investigacion/01-instrumentos-evaluacion.md) y [docs/07-plan-maestro-fase-0.md](docs/07-plan-maestro-fase-0.md)). Este repositorio también contiene la investigación, la arquitectura y el diseño que fundamentan esas decisiones.
+🚧 **Prototipo del MVP en desarrollo, ya con backend real.** Existe un prototipo funcional (Next.js + PostgreSQL vía Prisma) que implementa el flujo completo — entrada, consentimiento, evaluación, resultado, ejercicios y tablero del cuidador — persistiendo de verdad en base de datos, pero corriendo sobre **contenido de demostración**, porque ningún instrumento clínico real (Fototest, Mini-Cog, CST, etc.) tiene aún permiso escrito de digitalización (ver [docs/02-investigacion/01-instrumentos-evaluacion.md](docs/02-investigacion/01-instrumentos-evaluacion.md) y [docs/07-plan-maestro-fase-0.md](docs/07-plan-maestro-fase-0.md)). Este repositorio también contiene la investigación, la arquitectura y el diseño que fundamentan esas decisiones.
+
+La identificación de usuario hoy es una cookie seudónima mínima (sin OTP real todavía — ver plan maestro §3-4); no confundir con autenticación de producción.
 
 ### Desarrollo local
 
 ```bash
-npm install
-cp .env.example .env        # solo necesario cuando se conecte la base de datos
-npm run dev                 # http://localhost:3000
-npm test                    # motor de instrumentos y ejercicios (vitest)
+npm install                        # también genera el cliente Prisma (postinstall)
+cp .env.example .env               # ajustar DATABASE_URL si no se usa docker-compose
+
+# Base de datos: con Docker
+docker compose up -d
+# — o con un PostgreSQL local ya corriendo, crear el rol/base "cognos" a mano —
+
+npx prisma migrate deploy          # aplica las migraciones (o "migrate dev" para crear una nueva)
+npm run db:seed                    # sincroniza content/*.yaml -> catálogo en BD
+
+npm run dev                        # http://localhost:3000
+npm test                           # motor de instrumentos y ejercicios (vitest)
+npm run test:e2e                   # flujo completo en navegador real (playwright) — requiere el server corriendo
 npm run typecheck
 npm run build
 ```
 
-El prototipo actual usa `localStorage` para conectar las pantallas (evaluación → resultado → ejercicios → tablero) mientras no hay backend conectado; `prisma/schema.prisma` ya modela las entidades reales (ver [docs/05-modelo-datos.md](docs/05-modelo-datos.md)) para cuando se conecte PostgreSQL.
+`prisma/schema.prisma` modela las entidades reales (ver [docs/05-modelo-datos.md](docs/05-modelo-datos.md)); `prisma/seed.ts` sincroniza el contenido declarativo de `content/*.yaml` hacia las tablas de catálogo (`Instrumento`/`VersionInstrumento`, `Ejercicio`/`VersionEjercicio`), y las rutas en `src/app/api/*` (respaldadas por `src/lib/db/repositorio.ts`) persisten evaluaciones, sesiones de ejercicio y observaciones cualitativas.
 
 ## Documentación
 
