@@ -1,0 +1,107 @@
+# CONTENIDO DE DEMOSTRACIÓN — no es un instrumento clínico real.
+#
+# Ningún instrumento de tamizaje en español investigado (Fototest, Eurotest, T@M, AD8,
+# Mini-Cog) es de dominio público para digitalización sin permiso escrito del autor
+# (ver docs/02-investigacion/01-instrumentos-evaluacion.md). Mientras esos permisos se
+# gestionan (ver docs/07-plan-maestro-fase-0.md §3), este archivo demuestra el motor
+# con preguntas de orientación genéricas de dominio público (día, estación, lugar),
+# conceptos básicos de examen mental que no pertenecen a ningún instrumento propietario.
+#
+# Reemplazar por instrumentos reales SOLO cuando `licencia.permiso_digitalizacion: true`
+# esté respaldado por un permiso verificado por escrito.
+
+id: demo-orientacion
+nombre: "Demostración: orientación y memoria (NO CLÍNICO)"
+version: 0.1.0
+estado: publicado
+idioma: es
+
+licencia:
+  tipo: dominio-publico
+  titular: "Equipo Cognos (contenido original de demostración)"
+  permiso_digitalizacion: true
+  verificada_por: "equipo-cognos"
+  fecha_verificacion: "2026-07-03"
+  url_referencia: ""
+  atribucion_obligatoria: ""
+
+modo: [autoadministrado, asistido]
+dominios: [orientacion, memoria]
+duracion_estimada_min: 4
+requiere_materiales: false
+independiente_de_lectoescritura: true
+
+demografia_requerida: [edad, escolaridad]
+
+items:
+  - id: dia-semana
+    tipo: opcion-multiple
+    dominio: orientacion
+    enunciado: "¿Qué día de la semana es hoy?"
+    audio: ""
+    opciones:
+      - { valor: 1, etiqueta: "Sabe el día correcto" }
+      - { valor: 0, etiqueta: "No sabe o responde otro día" }
+    limite_tiempo_s: null
+
+  - id: estacion-ano
+    tipo: opcion-multiple
+    dominio: orientacion
+    enunciado: "¿En qué momento del año estamos: verano, otoño, invierno o primavera?"
+    opciones:
+      - { valor: 1, etiqueta: "Sabe la estación correcta" }
+      - { valor: 0, etiqueta: "No sabe o responde otra" }
+    limite_tiempo_s: null
+
+  - id: lugar-actual
+    tipo: opcion-multiple
+    dominio: orientacion
+    enunciado: "¿Dónde estamos ahora: en la casa, en un centro de salud, en otro lugar?"
+    opciones:
+      - { valor: 1, etiqueta: "Sabe dónde está" }
+      - { valor: 0, etiqueta: "No sabe o se equivoca" }
+    limite_tiempo_s: null
+
+  - id: recuerdo-tres-palabras
+    tipo: registro-verbal
+    dominio: memoria
+    enunciado: "Diga estas tres palabras y pida que las repita ahora: MESA, ÁRBOL, MONEDA. Después de un momento, pida que las recuerde de nuevo."
+    opciones:
+      - { valor: 3, etiqueta: "Recordó las 3 palabras" }
+      - { valor: 2, etiqueta: "Recordó 2 palabras" }
+      - { valor: 1, etiqueta: "Recordó 1 palabra" }
+      - { valor: 0, etiqueta: "No recordó ninguna" }
+    limite_tiempo_s: null
+
+  - id: informador-cambios
+    tipo: informador
+    dominio: memoria
+    enunciado: "Para quien acompaña: en el último año, ¿ha notado más dificultad para recordar citas o conversaciones recientes?"
+    opciones:
+      - { valor: 0, etiqueta: "No, sin cambios" }
+      - { valor: 1, etiqueta: "Sí, hay algún cambio" }
+    limite_tiempo_s: null
+
+puntuacion:
+  metodo: suma
+  rango: { min: 0, max: 7 }
+  por_dominio: true
+  cortes:
+    - { escolaridad: "<4 años", punto_corte: 4 }
+    - { escolaridad: "4-8", punto_corte: 5 }
+    - { escolaridad: ">8", punto_corte: 5 }
+
+resultado:
+  bandas:
+    - id: sin-alerta
+      etiqueta: "Sin señales de alerta"
+      regla: "puntaje >= punto_corte"
+      mensaje_usuario: "Por ahora, los resultados no muestran señales de alerta. Vale la pena repetir esta evaluación más adelante."
+    - id: zona-atencion
+      etiqueta: "Conviene observar"
+      regla: "puntaje == punto_corte - 1"
+      mensaje_usuario: "Vale la pena observar cómo evoluciona en las próximas semanas y cuidar el sueño, el ánimo y la actividad."
+    - id: derivar
+      etiqueta: "Se sugiere valoración profesional"
+      regla: "puntaje < punto_corte - 1"
+      mensaje_usuario: "Estos resultados sugieren que sería útil una valoración con un profesional de salud. Esto no es un diagnóstico."

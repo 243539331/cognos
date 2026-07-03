@@ -1,0 +1,63 @@
+# CONTENIDO DE DEMOSTRACIÓN — actividad propia, no reproduce materiales con copyright
+# (los manuales de CST/Making a Difference tienen copyright — ver
+# docs/02-investigacion/02-evidencia-cientifica.md §2.6 "CST-ES y licencias de los manuales").
+# Esta actividad está INSPIRADA en el principio de "asociación" de la CST, pero es
+# contenido original escrito para Cognos.
+
+id: demo-emparejar-objetos
+nombre: "Demostración: objetos que van juntos (NO CLÍNICO)"
+version: 0.1.0
+estado: publicado
+idioma: es
+
+licencia:
+  tipo: propio
+  titular: "Equipo Cognos (contenido original de demostración)"
+  permiso_uso: true
+  verificada_por: "equipo-cognos"
+
+dominio_primario: memoria
+dominios_secundarios: [lenguaje]
+principio_cst: "asociación de palabras"
+sin_fallo_explicito: true
+
+niveles:
+  - nivel: 1
+    descripcion: "3 pares, sin límite de tiempo, con pistas"
+    parametros: { elementos: 3, tiempo_s: null, pistas: true }
+  - nivel: 2
+    descripcion: "5 pares, sin límite de tiempo, con pistas"
+    parametros: { elementos: 5, tiempo_s: null, pistas: true }
+  - nivel: 3
+    descripcion: "8 pares, sin límite de tiempo, sin pistas"
+    parametros: { elementos: 8, tiempo_s: null, pistas: false }
+
+adaptacion:
+  regla_subir: "2 sesiones consecutivas con aciertos >= 80%"
+  regla_bajar: "aciertos < 50% en una sesión"
+
+accesibilidad:
+  instrucciones: { texto: true, audio: true, ilustracion: true }
+  boton_escuchar_de_nuevo: true
+  entrada: [toque, voz]
+  objetivo_tactil_min_px: 44
+  tiempo_limite: ninguno
+  lenguaje: lectura-facil
+
+contenido:
+  tipo: emparejar
+  consigna: "Toque los dos objetos que van juntos."
+  offline: true
+  recursos: []
+  items:
+    - { id: par-1, a: "Taza", b: "Café" }
+    - { id: par-2, a: "Llave", b: "Puerta" }
+    - { id: par-3, a: "Paraguas", b: "Lluvia" }
+    - { id: par-4, a: "Aguja", b: "Hilo" }
+    - { id: par-5, a: "Jabón", b: "Agua" }
+    - { id: par-6, a: "Lápiz", b: "Papel" }
+    - { id: par-7, a: "Peine", b: "Cabello" }
+    - { id: par-8, a: "Cuchara", b: "Sopa" }
+
+telemetria:
+  registra: [aciertos, errores, tiempo_total_s, nivel_alcanzado, completada]

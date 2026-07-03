@@ -1,0 +1,215 @@
+// Esquema de datos — ver docs/05-modelo-datos.md para el modelo conceptual
+// y las decisiones de privacidad (seudonimización, versionado inmutable de contenidos).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum RolVinculo {
+  CUIDADOR
+  PROFESIONAL
+}
+
+enum EstadoVinculo {
+  PROPUESTO
+  CONSENTIDO
+  REVOCADO
+}
+
+enum ModoEvaluacion {
+  AUTO
+  ASISTIDA
+}
+
+enum EstadoContenido {
+  BORRADOR
+  EN_REVISION
+  PUBLICADO
+  RETIRADO
+}
+
+/// Cuenta de usuario. Funciona con alias por defecto (ver §5.4 modelo-datos):
+/// nombre real y contacto son opcionales y se guardan cifrados a nivel de aplicación.
+model Usuario {
+  id            String   @id @default(cuid())
+  alias         String
+  anioNacimiento Int?
+  escolaridad   String? // "<4 años" | "4-8" | ">8" — bandas requeridas por los instrumentos
+  idioma        String   @default("es")
+  createdAt     DateTime @default(now())
+
+  vinculosComoOrigen  Vinculo[] @relation("VinculoOrigen")
+  vinculosComoDestino Vinculo[] @relation("VinculoDestino")
+
+  consentimientos     Consentimiento[]
+  evaluaciones        Evaluacion[]
+  planes              PlanEstimulacion[]
+  observaciones       ObservacionCualitativa[] @relation("ObservacionesRecibidas")
+  observacionesAutor  ObservacionCualitativa[] @relation("ObservacionesAutor")
+  accesosComoActor    AccesoAuditado[]         @relation("AccesoActor")
+  accesosSobreDatos   AccesoAuditado[]         @relation("AccesoSobreUsuario")
+}
+
+/// La unidad de permiso: nadie ve datos de otro usuario sin un vínculo consentido y vigente.
+model Vinculo {
+  id         String        @id @default(cuid())
+  origenId   String
+  origen     Usuario       @relation("VinculoOrigen", fields: [origenId], references: [id])
+  destinoId  String
+  destino    Usuario       @relation("VinculoDestino", fields: [destinoId], references: [id])
+  rol        RolVinculo
+  estado     EstadoVinculo @default(PROPUESTO)
+  createdAt  DateTime      @default(now())
+  revocadoEn DateTime?
+
+  evaluacionesAsistidas Evaluacion[]
+
+  @@index([origenId])
+  @@index([destinoId])
+}
+
+model Consentimiento {
+  id         String    @id @default(cuid())
+  usuarioId  String
+  usuario    Usuario   @relation(fields: [usuarioId], references: [id])
+  version    String
+  alcance    String
+  fecha      DateTime  @default(now())
+  revocadoEn DateTime?
+}
+
+/// Catálogo de instrumentos — independiente de usuarios. Ver docs/08 esquema-instrumento.md.
+model Instrumento {
+  id       String              @id // slug estable, p. ej. "demo-orientacion"
+  nombre   String
+  versiones VersionInstrumento[]
+}
+
+/// Versión INMUTABLE de un instrumento: una Evaluacion siempre referencia
+/// instrumento@version para que las comparaciones longitudinales sean válidas.
+model VersionInstrumento {
+  id            String          @id @default(cuid())
+  instrumentoId String
+  instrumento   Instrumento     @relation(fields: [instrumentoId], references: [id])
+  version       String // SemVer
+  estado        EstadoContenido @default(BORRADOR)
+  idioma        String          @default("es")
+
+  /// Bloqueante: sin licencia verificada (permiso_digitalizacion=true) no puede
+  /// pasar a estado PUBLICADO. Ver docs/08 esquema-instrumento.md §Reglas de validación.
+  licencia   Json
+  items      Json
+  puntuacion Json
+  resultado  Json
+
+  createdAt DateTime @default(now())
+
+  evaluaciones Evaluacion[]
+
+  @@unique([instrumentoId, version])
+}
+
+/// Respuestas crudas + puntajes derivados (ver §5.2 modelo-datos: permite repuntuar
+/// sin perder datos si una regla de puntuación tenía un error).
+model Evaluacion {
+  id                   String         @id @default(cuid())
+  usuarioId            String
+  usuario              Usuario        @relation(fields: [usuarioId], references: [id])
+  versionInstrumentoId String
+  versionInstrumento   VersionInstrumento @relation(fields: [versionInstrumentoId], references: [id])
+  modo                 ModoEvaluacion
+  vinculoAsistenteId   String?
+  vinculoAsistente     Vinculo?       @relation(fields: [vinculoAsistenteId], references: [id])
+
+  respuestas     Json
+  puntajes       Json
+  bandaResultado String
+
+  fecha   DateTime @default(now())
+  contexto Json?
+
+  planes PlanEstimulacion[]
+}
+
+model Ejercicio {
+  id        String              @id
+  nombre    String
+  versiones VersionEjercicio[]
+}
+
+model VersionEjercicio {
+  id             String          @id @default(cuid())
+  ejercicioId    String
+  ejercicio      Ejercicio       @relation(fields: [ejercicioId], references: [id])
+  version        String
+  estado         EstadoContenido @default(BORRADOR)
+  idioma         String          @default("es")
+
+  dominioPrimario     String
+  dominiosSecundarios Json
+  principioCst        String?
+  niveles             Json
+  adaptacion          Json
+  accesibilidad       Json
+  contenido           Json
+  licencia            Json
+
+  createdAt DateTime @default(now())
+
+  sesiones SesionEjercicio[]
+
+  @@unique([ejercicioId, version])
+}
+
+model PlanEstimulacion {
+  id           String     @id @default(cuid())
+  usuarioId    String
+  usuario      Usuario    @relation(fields: [usuarioId], references: [id])
+  evaluacionId String?
+  evaluacion   Evaluacion? @relation(fields: [evaluacionId], references: [id])
+  objetivos    Json
+  createdAt    DateTime   @default(now())
+
+  sesiones SesionEjercicio[]
+}
+
+model SesionEjercicio {
+  id                   String            @id @default(cuid())
+  planId               String
+  plan                 PlanEstimulacion  @relation(fields: [planId], references: [id])
+  versionEjercicioId   String
+  versionEjercicio     VersionEjercicio  @relation(fields: [versionEjercicioId], references: [id])
+  nivel                Int
+  desempeno            Json
+  completada           Boolean           @default(false)
+  sincronizadaOffline  Boolean           @default(false)
+  fecha                DateTime          @default(now())
+}
+
+/// Registro cualitativo estructurado del cuidador (escalas + texto libre),
+/// graficado junto a lo cuantitativo en el tablero (ver docs/04 §"El tablero de progreso").
+model ObservacionCualitativa {
+  id             String   @id @default(cuid())
+  usuarioId      String
+  usuario        Usuario  @relation("ObservacionesRecibidas", fields: [usuarioId], references: [id])
+  autorId        String
+  autor          Usuario  @relation("ObservacionesAutor", fields: [autorId], references: [id])
+  escalas        Json // { sueno: 1-5, animo: 1-5, autonomia: 1-5 }
+  textoLibre     String?
+  fecha          DateTime @default(now())
+}
+
+model AccesoAuditado {
+  id            String   @id @default(cuid())
+  actorId       String
+  actor         Usuario  @relation("AccesoActor", fields: [actorId], references: [id])
+  sobreUsuarioId String
+  sobreUsuario  Usuario  @relation("AccesoSobreUsuario", fields: [sobreUsuarioId], references: [id])
+  accion        String
+  fecha         DateTime @default(now())
+}

@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: theme("colors.paper");
+  color: theme("colors.ink");
+  font-family: theme("fontFamily.sans");
+}
+
+:focus-visible {
+  outline: 3px solid theme("colors.ochre");
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@layer components {
+  /* Botón grande de la interfaz "persona" — ver docs/04-diseno-ux-accesibilidad.md
+     y docs/08-especificaciones-tecnicas/wireframes-accesibilidad.md (checklist de aceptación). */
+  .btn-grande {
+    @apply min-h-touch w-full rounded-xl border-2 border-teal bg-white px-6 py-4 text-persona-base font-medium text-ink transition-colors;
+    @apply hover:bg-teal-tint active:bg-teal-soft;
+  }
+  .btn-grande-primario {
+    @apply btn-grande bg-teal text-white border-teal hover:bg-teal-deep active:bg-teal-deep;
+  }
+  .tarjeta {
+    @apply rounded-2xl border border-line bg-white p-6 shadow-sm;
+  }
+  .etiqueta {
+    @apply text-xs font-semibold uppercase tracking-wider text-teal;
+  }
+}
